@@ -36,9 +36,10 @@
 
 		# Agenda
 
-		1. Benefits
-		2. Deep-dive
-		3. ...
+		### Part I: Introduction
+		###Part II: Benefits
+		###Part III: Considerations
+		###Part IV: Getting started
 
 		???
 
@@ -47,67 +48,128 @@
 		*Never heard of it? Have the drive to go out and see what it is about
 		*I know it a little, maybe have a bit more of an idea on how it might help and how they can get started
 		*If they are an expert they have seen what another person 
+		
+		---
+
+		# Part I: Introduction
+
 		---
 		
-		# Let's start with a definition
+		## Audience participation
+
+		What is your current experience with microservices?
+
+		http://braiden.firebaseapp.com
+
+		---
+
+		## Let's start with a definition
 
 		What is a microservice?
 
+		> .footnote[.blue[@pragmaticyclist]]
+
+		???
+
+		Comparisons to a monolithic server architecture is easiest to illustrate the benefits.
+
 		---
 
-		# Some examples
+		![Alt text](img/monolithic.png)
+
+		---
+
+		![Alt text](img/microservice.png)
+
+		---
+
+		## Some examples
 
 		1. Next purchase recomendation engine in a book store
 		2. Cost reporting engine for cloud resources
-		3. 
+		3. Watch should I watch next on Netflix?
+
+		> .footnote[.blue[@pragmaticyclist]]
 
 		---
 
-		# So we agree a smaller more lightweight service is better? Why not a nanoservice or even picoservice?
+		## Isn't microservices just SOA?
+
+		???
+
+		* Subset of SOA and an iteration of it
+		* Some people do even call it fine grained SOA (netflix)
+		* Microservices is to SOA, what XP is to Agile
+
+		> .footnote[.blue[@pragmaticyclist]]
 
 		---
 
-		# Well the benefits of segregating and isolation are negated by management overhead and interservice communication
+		## OK, Why?
+
+		???
+
+		* So now we have a definition, why would we want to do something like this?
 
 		---
 
-		# Brings freedom and choice
+		# Benefits
 
-		1. Geography
-		2. Technology Stack
-		3. Durability ??? What does that mean??
-		4. Empowerment
+		---
+
+		## Brings freedom and choice
+		### Empowerment
 
 		???
 
 		* Empowerment - Services solves a problem that can be owned by a team or a group. Empowering them to solve the problem how they want, we just ditate the interface
+		
 		* Easy to enable new technology, we can trial new technologies on lesser services (in terms of complexity of the problems they solve). Enables you to hire people to solve problems not for their knowledge of a technology stack.
-		* Scalability of innovation and product delivery. Teams are no longer planning independent changes, rather they can define the interface to their service and build changes within those bounds without the knowledge or the service customers.
 
 		---
 
-		# Agility
+		## Team structure
+
+		> "organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations" 
+		> - M. Conway
 
 		???
 
-		* The original AGILE manifesto was focused on trial, measure and correction. Microservices is an obvious fit for that working model as you can trial new technologies, ways of working, ide's hosting. Measure the results learn and feed into the next service. 
+		* Conway's law
+		* Distributed Agile is quite difficult in practice
+		* Teams can now work more effectively accross boundaries but creating problem domains within a physical location
 
 		---
 
-		# Why more resiliant
+		## Scalability
 
-		??? 
+		???
 
-		* Services that are loosely coupled can continue even while one of their peers has failed. A great example of this is the Netflix
+		
+		* Scalability of innovation and product delivery. Teams are no longer planning independent changes, rather they can define the interface to their service and build changes within those bounds without the knowledge or the service customers.
+		* Fine grained scalability, we can scale individual parts of our application as needed.
+
+		---
+
+		## Agility
+
+		???
+
+		* The original AGILE manifesto was focused on trial, measure and correction the repeat. Microservices is an obvious fit for that working model as you can trial new technologies, ways of working, even ide's or hosting. Measure the results, learn and feed into the next service. 
+
+		---
+
+		## Resiliency
+
+		???
+
+		* Services that are loosely coupled can continue even while one of their peers has failed. A great example of this is the Netflix and their cloud native, non-fragile archnitecture.
+
+		---
 
 		### Header 3
 
 		**Braiden**
-		> This is a blockquote.
-		> 
-		> This is the second paragraph in the blockquote.
-		>
-		> ## This is an H2 in a blockquote
 
 		---
 
@@ -132,21 +194,43 @@
 		# OK this is excellent but if everything is autonomous and not consistent how do we not end with multiple disparate systems they don't mesh together to create something useful for a human?
 
 		* Interfaces - REST, Error Handling
-		* Monitoring - Logging as a proactive and reactive tool, getting response times. Knowing what normal is.
+		* Monitoring - Logging as a proactive and reactive tool, getting response times. Knowing what normal is. HTTP Error codes. Correlation ID, unique ID for all service interactions involved in a single request.
 		* Deployment
 		* Transactions - Distributed Transactions
 
 		---
 
+		# So we agree a smaller more lightweight service is better? Why not a nanoservice or even picoservice?
 
+		---
 
-		# Things to note from deployment
+		# Considerations
+
+		---
+
+		## Deployment
+		### Deploy quickly and often
+
+		# Well the benefits of segregating and isolation are negated by management overhead and interservice communication
+
+		???
+
+		* By deploying quickly i mean when the release is ready it should rapidly move to production.
+		* Often means deploying small production ready changes
 
 		---
 
 		# Orchestrating services to make something useful
 
 		- Important to define the interfaces between them, not necessarily the technology that supports them.
+
+		---
+
+		# References and Notes in the Mardown
+
+		???
+
+		* http://www.infoq.com/news/2014/03/microservices-soa
 
 		</textarea>
 		<script src="lib/remark/out/remark.min.js" type="text/javascript"></script>
