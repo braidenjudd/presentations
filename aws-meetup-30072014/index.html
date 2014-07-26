@@ -3,8 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-
-		<title>Angular Meetup Melbourne - Protractor JS</title>
+		<title>AWS Meetup Melbourne - Microservices</title>
 		<meta name="description" content="Angular Meetup Melbourne - Protractor JS">
 		<meta name="author" content="Braiden Judd">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -16,23 +15,27 @@
 
 		name: inverse
 		layout: true
-		class: center, middle, inverse
+		class: center, middle
 
 		---
+
+		class: inverse
 
 		# Microservices
 		*Getting Started (Put something better than this)*
 
 		---
 
+		class: inverse
+
 		# Braiden Judd
 		> Work at Suncorp
-		>
-		> Systems Engineer
 		>
 		> @pragmaticyclist
 
 		---
+
+		class: inverse
 
 		# Agenda
 
@@ -45,11 +48,390 @@
 
 		I need to say what I want the audience to get out of the talk by the end.
 
-		*Never heard of it? Have the drive to go out and see what it is about
-		*I know it a little, maybe have a bit more of an idea on how it might help and how they can get started
-		*If they are an expert they have seen what another person 
-		
+		* Never heard of it? Have the drive to go out and see what it is about
+		* I know it a little, maybe have a bit more of an idea on how it might help and how they can get started
+		* If they are an expert they have seen what another person 
+
 		---
+
+		class: inverse
+
+		# Disclaimer
+
+		???
+
+		* This is a broad topic and there is no real one size fits all
+		* I'm not an expert in your problem domain, so like when you call a bank, this is general advice not personal advice.
+
+		---
+
+		# Part I: Introduction
+		*OK, what?*
+
+		---
+		
+		class: inverse
+
+		## Audience participation
+
+		What is your current experience with microservices?
+
+		http://braiden.firebaseapp.com
+
+		---
+
+		class: inverse
+
+		## Let's start with a definition
+
+		### What does microservices mean?
+
+		???
+
+		* Small-ish, < 1000 lines of code, this can actually mean a lot with modern day framworks.
+		* Based around problem domains.
+		* Comparisons to a monolithic server architecture is easiest to illustrate the benefits.
+
+		---
+
+		class: inverse
+
+		## Monolithic System
+
+		![Alt text](img/monolithic.png)
+
+		???
+
+		A large system that does something useful for a customer, such as a CRM, Netflix, Google.com.
+
+		---
+
+		class: inverse
+
+		## Microservices
+
+		![Alt text](img/microservice.png)
+
+		???
+
+		A collection of services that by working together do something useful for the a customer.
+
+		---
+
+		class: inverse
+
+		## Some examples
+
+		### Next purchase recomendation engine in a book store
+		### Cost reporting engine for cloud resources
+		### Watch should I watch next on Netflix?
+
+		---
+
+		class: inverse
+
+		## Isn't microservices just SOA?
+
+		### Microservices is to SOA, what XP is to Agile
+
+		???
+
+		* Pre-emptive slide
+		* Subset of SOA and an iteration of it
+		* Some people do even call it fine grained SOA (netflix)
+		* Microservices is to SOA, what XP is to Agile
+
+		---
+
+		# Part II: Benefits
+		*OK, why?*
+
+		???
+
+		* So now we have a definition, why would we want to do something like this?
+
+		---
+
+		class: inverse
+
+		## Brings freedom and choice
+		### Empowerment
+
+		???
+
+		* Empowerment - Services solves a problem that can be owned by a team or a group. Empowering them to solve the problem how they want, we just ditate the interface
+		
+		* Easy to enable new technology, we can trial new technologies on lesser services (in terms of complexity of the problems they solve). Enables you to hire people to solve problems not for their knowledge of a technology stack.
+
+		---
+
+		class: inverse
+
+		## Team structure
+
+		> "organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations" 
+		> 
+		> M. Conway
+
+		???
+
+		* Conway's law
+		* Distributed Agile is quite difficult in practice
+		* Teams can now work more effectively accross boundaries but creating problem domains within a physical location
+
+		---
+
+		class: inverse
+
+		## Scalability
+
+		### Won't there be 10's of operations for requests instead of 1?
+
+		???
+
+		* Perhaps but we can scale a lot better in a microservices world, we can scale the 'hot' services rather than just scale the whole thing. It also helps with DB scaling, DB scaling can be hard however in a small fine grained architecture persistance layers are rarely so large scaling becomes a major issue.
+		* Scalability of innovation and product delivery. Teams are no longer planning independent changes, rather they can define the interface to their service and build changes within those bounds without the knowledge or the service customers.
+		* Fine grained scalability, we can scale individual parts of our application as needed.
+
+		---
+
+		class: inverse
+
+		## Agility
+
+		### Architecture that fits the way you work
+
+		???
+
+		* The original AGILE manifesto was focused on trial, measure and correction the repeat. Microservices is an obvious fit for that working model as you can trial new technologies, ways of working, even ide's or hosting. Measure the results, learn and feed into the next service.
+
+		---
+
+		class: inverse
+
+		## Resiliency
+
+		### Cloud native architecture
+
+		???
+
+		* Services that are loosely coupled can continue even while one of their peers has failed. A great example of this is the Netflix and their cloud native, non-fragile archnitecture.
+		* A service can attempt to call another service, and if that fails perhaps default back to a more generic defaut behaviour.
+		* By creating *Bulk Heads*, just like in a ship, you can stop failures propergating accross the system.
+		* Always set timeouts.
+
+		---
+
+		class: inverse
+
+		## So we agree a smaller more lightweight service is better? Why not a nanoservice or even picoservice?
+
+		There is a backend as a service that is just a counter.
+
+		???
+
+		* Services should be big enough so they can meaningfully solve a problem 
+		* There is a cost going too far the other way, integration testing, deployments and costs of infrastructure.
+		* Well the benefits of segregating and isolation are negated by management overhead and interservice communication
+
+		---
+
+		# Part III: Considerations
+		*Ok, how?*
+
+		---
+
+		class: inverse
+
+		## Deployment
+		### Deploy quickly and often
+
+		???
+
+		* By deploying quickly i mean when the release is ready it should rapidly move to production.
+		* Often means deploying small production ready changes
+		* Standardise the deployment process, so for example while you might have ruby on rails, django and node.js services, they all should be deployed the same way from something like jenkins. So their deployment specifics are not the same, they are deployable the same way.
+		* Docker could help with things like this.
+
+		---
+
+		class: inverse
+
+		## Interfaces
+
+		### Pipes and connections
+
+		???
+
+		* Standardise all the pipes and connections, allow autonomy and discretion in the service implementation
+		* Important to define the interfaces between them, not necessarily the technology that supports them.
+		* REST is a good and well defined standard. Use for the standard error codes HTTP provides.
+
+		---
+
+		class: inverse
+
+		## Monitoring and Logging
+
+		![Alt text](img/monolithic.png)
+		![Alt text](img/microservice.png)
+
+		???
+
+		* When something is broken on a monolithic system, it is very easy to see what is broken.
+		* In the microservice world, it is much more difficult. As it could be one of N disparate services.
+		* Logging as a proactive and reactive tool, getting response times. Knowing what normal is. HTTP Error codes. 
+		* Correlation ID, unique ID for all service interactions involved in a single request.
+
+		---
+
+		class: inverse
+
+		## Transactions
+
+		### These are hard
+
+		???
+
+		* Should be aware of any transactions occuring accross service boundaries, such as between an inventory and payment system.
+		* Transactions couple services together.
+		* These should be avoided where posisble
+
+		---
+
+		## Integration Testing
+
+		### XXXXXXXX
+
+		???
+
+		* XXX
+
+		---
+
+		class: inverse
+
+		## Architectural Safety
+
+		### Be a town planner and not an architect.
+
+		???
+
+		* Like a town planner define policies and regulations around what buildings need it their design they don't define the design themselves
+		* Define archetypes, that developers can use off the shelf to build their services
+		* If a service is to use a new technology the team would be expected to build their service conforming to the regulations.
+
+		---
+
+		# Part IV: Getting started
+		*Ok, when?*
+
+		???
+
+		* How we start with microservices
+
+		---
+
+		class: inverse
+
+		name: agenda
+		class: middle, center
+
+		## Decision Tree
+		![Alt text](img/decisiontree.png)
+
+		---
+
+		class: inverse
+
+		## Greenfields
+
+		### Make your standards in iteration 0 and go for it
+
+		???
+
+		* Make your standards highly visible
+		* Make sure you constantly
+
+		---
+
+		class: inverse
+
+		## Do you do any feature enhancements on this application?
+
+		### If no, leave it
+
+		---
+
+		class: inverse
+
+		## Is the feature enhancement confined to a single problem domain?
+
+		### Try microservices?
+
+		???
+
+		* Is the maintenance, acting on a particular problem domain of the application that could be pulled out as part of the maintenance work?
+
+		---
+
+		class: inverse
+
+		## Is this enhancement to a part of the application that can be reused elsewhere?
+
+		### Try microservices?
+
+		???
+
+		* By pulling this functionality into a microservice you can reuse the functionality elsewhere in your ecosystem.
+
+		---
+
+		class: inverse
+
+		## Is this enhancement on a very low risk piece of the application?
+
+		### Try microservices?
+
+		???
+
+		* Targetting low risk parts of the application is an obvious way to break some of the functionality away.
+
+		---
+
+		class: inverse
+
+		## Audience participation
+
+		### QUESTION HERE
+
+		http://braiden.firebaseapp.com
+
+		---
+
+		class: inverse
+
+		# Conclusion
+
+		### Microservices is to SOA, as XP is to AGILE
+		### Logging is important to know the health and in being proactive
+		### Deploy everything the same way, and don't let production ready code queue, deploy asap
+		### Interfaces - Define you interfaces upfront, use HTTP RESTful
+		### Empower your team - Major benefit - Speil about teams. Top down management v bottom up. More research
+
+		---
+
+		class: inverse
+
+		# Picks
+
+		## Dash - Mac Offline Documentation
+		## Podcasts - Arrested DevOps, Food Fight Show, Devchat.tv and AWS Pocast****
+		## A blog post on making a quadcopter?
+
+		---
+
+		class: inverse
 
 		# About Me
 
@@ -66,207 +448,13 @@
 
 		---
 
-		# Disclaimer
+		class: inverse
 
-		???
+		# Follow up
 
-		* This is a broad topic and there is no real one size fits all
-		* I'm not an expert in your problem domain, so like when you call a bank, this is general advice not personal advice.
-
-		---
-
-		# Part I: Introduction
-
-		---
-		
-		## Audience participation
-
-		What is your current experience with microservices?
-
-		http://braiden.firebaseapp.com
-
-		---
-
-		## Let's start with a definition
-
-		### Microservices is to SOA, what XP is to Agile
-
-		???
-
-		* Small-ish, < 1000 lines of code, this can actually mean a lot with modern day framworks.
-		* Based around problem domains.
-		* Comparisons to a monolithic server architecture is easiest to illustrate the benefits.
-
-		---
-
-		## Monolithic System
-
-		![Alt text](img/monolithic.png)
-
-		???
-
-		A large system that does something useful for a customer, such as a CRM, Netflix, Google.com.
-
-		---
-
-		## Microservices
-
-		![Alt text](img/microservice.png)
-
-		???
-
-		A collection of services that by working together do something useful for the a customer.
-
-		---
-
-		## Some examples
-
-		1. Next purchase recomendation engine in a book store
-		2. Cost reporting engine for cloud resources
-		3. Watch should I watch next on Netflix?
-
-		---
-
-		## Isn't microservices just SOA?
-
-		???
-
-		* Subset of SOA and an iteration of it
-		* Some people do even call it fine grained SOA (netflix)
-		* Microservices is to SOA, what XP is to Agile
-
-		> .footnote[.blue[@pragmaticyclist]]
-
-		---
-
-		## OK, Why?
-
-		???
-
-		* So now we have a definition, why would we want to do something like this?
-
-		---
-
-		# Benefits
-
-		---
-
-		## Brings freedom and choice
-		### Empowerment
-
-		???
-
-		* Empowerment - Services solves a problem that can be owned by a team or a group. Empowering them to solve the problem how they want, we just ditate the interface
-		
-		* Easy to enable new technology, we can trial new technologies on lesser services (in terms of complexity of the problems they solve). Enables you to hire people to solve problems not for their knowledge of a technology stack.
-
-		---
-
-		## Team structure
-
-		> "organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations" 
-		> - M. Conway
-
-		???
-
-		* Conway's law
-		* Distributed Agile is quite difficult in practice
-		* Teams can now work more effectively accross boundaries but creating problem domains within a physical location
-
-		---
-
-		## Scalability
-
-		???
-
-		
-		* Scalability of innovation and product delivery. Teams are no longer planning independent changes, rather they can define the interface to their service and build changes within those bounds without the knowledge or the service customers.
-		* Fine grained scalability, we can scale individual parts of our application as needed.
-
-		---
-
-		## Agility
-
-		???
-
-		* The original AGILE manifesto was focused on trial, measure and correction the repeat. Microservices is an obvious fit for that working model as you can trial new technologies, ways of working, even ide's or hosting. Measure the results, learn and feed into the next service. 
-
-		---
-
-		## Resiliency
-
-		???
-
-		* Services that are loosely coupled can continue even while one of their peers has failed. A great example of this is the Netflix and their cloud native, non-fragile archnitecture.
-
-		---
-
-		# But what about scalability?
-
-		> Won't there be 10's of operations for requests instead of 1?
-
-		???
-
-		Perhaps but we can scale a lot better in a microservices world, we can scale the 'hot' services rather than just scale the whole thing. It also helps with DB scaling, DB scaling can be hard however in a small fine grained architecture persistance layers are rarely so large scaling becomes a major issue.
-
-		---
-
-		# Why more robust?
-
-		---
-
-		# Conways law???
-
-		---
-
-		# OK this is excellent but if everything is autonomous and not consistent how do we not end with multiple disparate systems they don't mesh together to create something useful for a human?
-
-		* Interfaces - REST, Error Handling
-		* Monitoring - Logging as a proactive and reactive tool, getting response times. Knowing what normal is. HTTP Error codes. Correlation ID, unique ID for all service interactions involved in a single request.
-		* Deployment
-		* Transactions - Distributed Transactions
-
-		---
-
-		# So we agree a smaller more lightweight service is better? Why not a nanoservice or even picoservice?
-
-		---
-
-		# Considerations
-
-		---
-
-		## Deployment
-		### Deploy quickly and often
-
-		# Well the benefits of segregating and isolation are negated by management overhead and interservice communication
-
-		???
-
-		* By deploying quickly i mean when the release is ready it should rapidly move to production.
-		* Often means deploying small production ready changes
-
-		---
-
-		# Orchestrating services to make something useful
-
-		- Important to define the interfaces between them, not necessarily the technology that supports them.
-
-		---
-
-		# Picks
-
-		## Dash - Mac Offline Documentation
-		## Podcasts - Arrested DevOps and Food Fight Show
-		## Remark.js ???
-
-		---
-
-		# References and Notes in the Mardown
-
-		???
-
-		* http://www.infoq.com/news/2014/03/microservices-soa
+		> http://www.infoq.com/news/2014/03/microservices-soa
+		> 
+		> 
 
 		</textarea>
 		<script src="lib/remark/out/remark.min.js" type="text/javascript"></script>
