@@ -22,7 +22,7 @@
 		class: inverse
 
 		# Microservices
-		*Getting Started (Put something better than this)*
+		*Or fine grained architecture*
 
 		---
 
@@ -72,9 +72,7 @@
 		
 		class: inverse
 
-		## Audience participation
-
-		What is your current experience with microservices?
+		## What is your current experience with microservices?
 
 		http://braiden.firebaseapp.com
 
@@ -90,6 +88,8 @@
 
 		* Small-ish, < 1000 lines of code, this can actually mean a lot with modern day framworks.
 		* Based around problem domains.
+		* Services are peers of each other, none really being more important then another
+		* Solid well defined interfaces between them
 		* Comparisons to a monolithic server architecture is easiest to illustrate the benefits.
 
 		---
@@ -191,7 +191,8 @@
 
 		* Perhaps but we can scale a lot better in a microservices world, we can scale the 'hot' services rather than just scale the whole thing. It also helps with DB scaling, DB scaling can be hard however in a small fine grained architecture persistance layers are rarely so large scaling becomes a major issue.
 		* Scalability of innovation and product delivery. Teams are no longer planning independent changes, rather they can define the interface to their service and build changes within those bounds without the knowledge or the service customers.
-		* Fine grained scalability, we can scale individual parts of our application as needed.
+		* Fine grained scalability, we can scale, optimise or tweak individual parts of our application as needed rather than just throwing more hardware at the problem.
+		* Easier to identify, with good logging where bottlenecks are occuring, but measuring end-to-end uses of an applications and measure the response time of each service.
 
 		---
 
@@ -204,6 +205,8 @@
 		???
 
 		* The original AGILE manifesto was focused on trial, measure and correction the repeat. Microservices is an obvious fit for that working model as you can trial new technologies, ways of working, even ide's or hosting. Measure the results, learn and feed into the next service.
+		* Can deploy services, and therefore parts of your application individually. No large cordinated deployments with a large amount of associated risk.
+		* Means you are able to go from feature inception to delivery a lot faster.
 
 		---
 
@@ -217,7 +220,7 @@
 
 		* Services that are loosely coupled can continue even while one of their peers has failed. A great example of this is the Netflix and their cloud native, non-fragile archnitecture.
 		* A service can attempt to call another service, and if that fails perhaps default back to a more generic defaut behaviour.
-		* By creating *Bulk Heads*, just like in a ship, you can stop failures propergating accross the system.
+		* By creating *Bulk Heads*, just like in a ship, you can stop failures propergating accross the system by isolating parts of the system.
 		* Always set timeouts.
 
 		---
@@ -226,7 +229,7 @@
 
 		## So we agree a smaller more lightweight service is better? Why not a nanoservice or even picoservice?
 
-		There is a backend as a service that is just a counter.
+		### There is a backend as a service that is just a counter.
 
 		???
 
@@ -241,6 +244,27 @@
 
 		---
 
+		## Where do I standardise and where do I allow autonomy?
+
+		![Alt text](img/standardisation.png)
+
+		???
+
+		* Find a place on a line
+		* Enterprises tend to er on standardise
+		* Startups tend to be on the other side
+		* I am going to show there are parts that need standardisation and there are parts that are free to be autonomous
+
+		---
+
+		class: inverse
+
+		## Where do you think your organisation fits on the standardisation line?
+
+		http://braiden.firebaseapp.com
+
+		---
+
 		class: inverse
 
 		## Deployment
@@ -250,16 +274,30 @@
 
 		* By deploying quickly i mean when the release is ready it should rapidly move to production.
 		* Often means deploying small production ready changes
-		* Standardise the deployment process, so for example while you might have ruby on rails, django and node.js services, they all should be deployed the same way from something like jenkins. So their deployment specifics are not the same, they are deployable the same way.
+		* Standardise the deployment process, so for example while you might have ruby on rails, django and node.js services, they all should be deployed the same way.
+		* Use Chef, Puppet or Ansible, so to deploy each app you just run a playbook or cookbook, while these may very from service to actually deploy each service it will be the same.
 		* Docker could help with things like this.
 
 		---
 
-		class: inverse
+		## Integration Testing
+
+		### Consumer driven contracts
+
+		![Alt text](img/integrationtesting.png)
+
+		???
+
+		* Get the customers of your service write tests for your services they consume, this forms a contract
+		* Run these tests before each deployment
+
+		---
 
 		## Interfaces
 
 		### Pipes and connections
+
+		![Alt text](img/interconnects.png)
 
 		???
 
@@ -273,15 +311,15 @@
 
 		## Monitoring and Logging
 
-		![Alt text](img/monolithic.png)
-		![Alt text](img/microservice.png)
+		### Aggregate to create and end-to-end picture of your application
 
 		???
 
 		* When something is broken on a monolithic system, it is very easy to see what is broken.
 		* In the microservice world, it is much more difficult. As it could be one of N disparate services.
+		* Use a log aggregation tools, there are free open source options like logstash. But there are many great options that now play in this place.
 		* Logging as a proactive and reactive tool, getting response times. Knowing what normal is. HTTP Error codes. 
-		* Correlation ID, unique ID for all service interactions involved in a single request.
+		* Use transaction ID, a unique ID for all service interactions involved in a single request.
 
 		---
 
@@ -293,19 +331,9 @@
 
 		???
 
-		* Should be aware of any transactions occuring accross service boundaries, such as between an inventory and payment system.
+		* Should be aware of any transactions occuring accross service boundaries, such as between an ticketing and payment system.
 		* Transactions couple services together.
 		* These should be avoided where posisble
-
-		---
-
-		## Integration Testing
-
-		### XXXXXXXX
-
-		???
-
-		* XXX
 
 		---
 
@@ -318,6 +346,8 @@
 		???
 
 		* Like a town planner define policies and regulations around what buildings need it their design they don't define the design themselves
+		* Use timeouts, circuit breakers and bulk heads
+		* In the references there is a Netflix talk that goes through this in detail.
 		* Define archetypes, that developers can use off the shelf to build their services
 		* If a service is to use a new technology the team would be expected to build their service conforming to the regulations.
 
@@ -329,6 +359,7 @@
 		???
 
 		* How we start with microservices
+		* This can be hard, but their are benefits
 
 		---
 
@@ -360,6 +391,10 @@
 		## Do you do any feature enhancements on this application?
 
 		### If no, leave it
+
+		???
+
+		* Suits environments with changing conditions, not largely static applications
 
 		---
 
@@ -401,23 +436,13 @@
 
 		class: inverse
 
-		## Audience participation
-
-		### QUESTION HERE
-
-		http://braiden.firebaseapp.com
-
-		---
-
-		class: inverse
-
 		# Conclusion
 
 		### Microservices is to SOA, as XP is to AGILE
-		### Logging is important to know the health and in being proactive
-		### Deploy everything the same way, and don't let production ready code queue, deploy asap
+		### Logging is important, aggregate to create and end-to-end picture of your application
+		### Standardise the deployment process, deploy often
 		### Interfaces - Define you interfaces upfront, use HTTP RESTful
-		### Empower your team - Major benefit - Speil about teams. Top down management v bottom up. More research
+		### Empower your team - By standardising the pipes and connectors and giving autonomy in the service implementation
 
 		---
 
@@ -454,6 +479,8 @@
 
 		> http://www.infoq.com/news/2014/03/microservices-soa
 		> 
+		> http://yow.eventer.com/yow-2013-1080/practical-considerations-for-microservice-architectures-by-sam-newman-1389
+		>
 		> 
 
 		</textarea>
