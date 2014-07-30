@@ -22,7 +22,7 @@
 		class: inverse
 
 		# Microservices
-		*Or fine grained architecture*
+		*Or fine grained architectures*
 
 		---
 
@@ -33,40 +33,9 @@
 		>
 		> @pragmaticyclist
 
-		---
-
-		class: inverse
-
-		# Agenda
-
-		### Part I: Introduction
-		### Part II: Benefits
-		### Part III: Considerations
-		### Part IV: Getting started
-
 		???
 
-		I need to say what I want the audience to get out of the talk by the end.
-
-		* Never heard of it? Have the drive to go out and see what it is about
-		* I know it a little, maybe have a bit more of an idea on how it might help and how they can get started
-		* If they are an expert they have seen what another person 
-
-		---
-
-		class: inverse
-
-		# Disclaimer
-
-		???
-
-		* This is a broad topic and there is no real one size fits all
-		* I'm not an expert in your problem domain, so like when you call a bank, this is general advice not personal advice.
-
-		---
-
-		# Part I: Introduction
-		*OK, what?*
+		* Please get your phones out
 
 		---
 		
@@ -80,68 +49,71 @@
 
 		class: inverse
 
+		# Agenda
+
+		### Part I: Introduction
+		### Part II: Benefits
+		### Part III: Considerations
+		### Part IV: Getting started
+
+		---
+
+		class: inverse
+
+		# Part I: Introduction
+		*OK, what?*
+
+		---
+
 		## Let's start with a definition
 
 		### What does microservices mean?
 
+		![Alt text](img/microservices.png)
+
 		???
 
+		* A collection of services that by working together do something useful for the a customer.
 		* Small-ish, < 1000 lines of code, this can actually mean a lot with modern day framworks.
-		* Based around problem domains.
-		* Services are peers of each other, none really being more important then another
+		* Based around problem domains or a business concept.
+		* Services are peers of each other, none really being more important then another.
 		* Solid well defined interfaces between them
-		* Comparisons to a monolithic server architecture is easiest to illustrate the benefits.
+		* Analogy could be a software team, some people are more productive, some less. All communicate over standard forms of communication but all are autonomous, but they all work towards a common goal.
+
+		---
+
+		## AWS Cost Service
+
+		### Unloaded
+
+		![Alt text](img/aws_not_loaded.png)
+
+		---
+
+		## AWS Cost Service
+
+		### Loaded
+
+		![Alt text](img/aws_loaded.png)
+
+		---
+
+		## Netflix
+		### Recomended for me 
+
+		![Alt text](img/netflix.png)
+
+		---
+
+		## Amazon
+
+		### Books I may also like
+
+		![Alt text](img/amazon.png)
 
 		---
 
 		class: inverse
-
-		## Monolithic System
-
-		![Alt text](img/monolithic.png)
-
-		???
-
-		A large system that does something useful for a customer, such as a CRM, Netflix, Google.com.
-
-		---
-
-		class: inverse
-
-		## Microservices
-
-		![Alt text](img/microservice.png)
-
-		???
-
-		A collection of services that by working together do something useful for the a customer.
-
-		---
-
-		class: inverse
-
-		## Some examples
-
-		### Next purchase recomendation engine in a book store
-		### Cost reporting engine for cloud resources
-		### Watch should I watch next on Netflix?
-
-		---
-
-		class: inverse
-
-		## Isn't microservices just SOA?
-
-		### Microservices is to SOA, what XP is to Agile
-
-		???
-
-		* Pre-emptive slide
-		* Subset of SOA and an iteration of it
-		* Some people do even call it fine grained SOA (netflix)
-		* Microservices is to SOA, what XP is to Agile
-
-		---
 
 		# Part II: Benefits
 		*OK, why?*
@@ -152,55 +124,39 @@
 
 		---
 
-		class: inverse
-
 		## Brings freedom and choice
+
 		### Empowerment
+
+		![Alt text](img/interconnects.png)
 
 		???
 
 		* Empowerment - Services solves a problem that can be owned by a team or a group. Empowering them to solve the problem how they want, we just ditate the interface
-		
+		* Less risk in trialing a new technology
 		* Easy to enable new technology, we can trial new technologies on lesser services (in terms of complexity of the problems they solve). Enables you to hire people to solve problems not for their knowledge of a technology stack.
 
 		---
 
-		class: inverse
-
-		## Team structure
-
-		> "organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations" 
-		> 
-		> M. Conway
-
-		???
-
-		* Conway's law
-		* Distributed Agile is quite difficult in practice
-		* Teams can now work more effectively accross boundaries but creating problem domains within a physical location
-
-		---
-
-		class: inverse
-
 		## Scalability
 
-		### Won't there be 10's of operations for requests instead of 1?
+		### Flexibility in Scaling
+
+		![Alt text](img/finegrainedscalability.png)
 
 		???
 
 		* Perhaps but we can scale a lot better in a microservices world, we can scale the 'hot' services rather than just scale the whole thing. It also helps with DB scaling, DB scaling can be hard however in a small fine grained architecture persistance layers are rarely so large scaling becomes a major issue.
 		* Scalability of innovation and product delivery. Teams are no longer planning independent changes, rather they can define the interface to their service and build changes within those bounds without the knowledge or the service customers.
 		* Fine grained scalability, we can scale, optimise or tweak individual parts of our application as needed rather than just throwing more hardware at the problem.
-		* Easier to identify, with good logging where bottlenecks are occuring, but measuring end-to-end uses of an applications and measure the response time of each service.
 
 		---
-
-		class: inverse
 
 		## Agility
 
 		### Architecture that fits the way you work
+
+		![Alt text](img/agility.png)
 
 		???
 
@@ -210,34 +166,38 @@
 
 		---
 
-		class: inverse
-
 		## Resiliency
 
 		### Cloud native architecture
 
+		![Alt text](img/resiliency.png)
+
 		???
 
 		* Services that are loosely coupled can continue even while one of their peers has failed. A great example of this is the Netflix and their cloud native, non-fragile archnitecture.
+		* Easier to identify, with good logging where bottlenecks are occuring, but measuring end-to-end uses of an applications and measure the response time of each service.
 		* A service can attempt to call another service, and if that fails perhaps default back to a more generic defaut behaviour.
 		* By creating *Bulk Heads*, just like in a ship, you can stop failures propergating accross the system by isolating parts of the system.
 		* Always set timeouts.
+		* All leads to less risk, no all eggs in one basket
+
+		---
+
+		## Geography
+
+		### Distributed Workforce
+
+		![Alt text](img/geography.png)
+
+		???
+
+		* Distrubuted AGILE is hard
+		* With microservices you could have distributed teams, each location solving a different problem and therefore working on different services
+		* Allows you to spread you search for talent past your local area
 
 		---
 
 		class: inverse
-
-		## So we agree a smaller more lightweight service is better? Why not a nanoservice or even picoservice?
-
-		### There is a backend as a service that is just a counter.
-
-		???
-
-		* Services should be big enough so they can meaningfully solve a problem 
-		* There is a cost going too far the other way, integration testing, deployments and costs of infrastructure.
-		* Well the benefits of segregating and isolation are negated by management overhead and interservice communication
-
-		---
 
 		# Part III: Considerations
 		*Ok, how?*
@@ -257,23 +217,48 @@
 
 		---
 
-		class: inverse
-
 		## Where do you think your organisation fits on the standardisation line?
 
 		http://braiden.firebaseapp.com
 
 		---
 
-		class: inverse
+		## Interfaces
+
+		### Pipes and connections
+
+		![Alt text](img/freedom_v_autonomy.png)
+
+		???
+
+		* Standardise all the pipes and connections, allow autonomy and discretion in the service implementation
+		* Important to define the interfaces between them, not necessarily the technology that supports them.
+		* REST is a good and well defined standard. Use for the standard error codes HTTP provides.
+
+		---
 
 		## Deployment
+
 		### Deploy quickly and often
+
+		![Alt text](img/baddeployments.png)
 
 		???
 
 		* By deploying quickly i mean when the release is ready it should rapidly move to production.
+		
+		---
+
+		## Deployment
+
+		### Deploy quickly and often
+
+		![Alt text](img/gooddeployments.png)
+
+		???
+
 		* Often means deploying small production ready changes
+		* Lowers the risk of changes as they are smaller, less coupled and therefore more easy to rollback
 		* Standardise the deployment process, so for example while you might have ruby on rails, django and node.js services, they all should be deployed the same way.
 		* Use Chef, Puppet or Ansible, so to deploy each app you just run a playbook or cookbook, while these may very from service to actually deploy each service it will be the same.
 		* Docker could help with things like this.
@@ -293,25 +278,11 @@
 
 		---
 
-		## Interfaces
-
-		### Pipes and connections
-
-		![Alt text](img/interconnects.png)
-
-		???
-
-		* Standardise all the pipes and connections, allow autonomy and discretion in the service implementation
-		* Important to define the interfaces between them, not necessarily the technology that supports them.
-		* REST is a good and well defined standard. Use for the standard error codes HTTP provides.
-
-		---
-
-		class: inverse
-
 		## Monitoring and Logging
 
 		### Aggregate to create and end-to-end picture of your application
+
+		![Alt text](img/logging.png)
 
 		???
 
@@ -323,11 +294,24 @@
 
 		---
 
-		class: inverse
+		## Automation
+
+		### Goes without saying
+
+		![Alt text](img/automation.gif)
+
+		???
+
+		* I was not going to include this slide, but deployments, testing and monitoring must be automated.
+		* Can not afford not to automate within a microservices based environment as deployments, testing and monitoring needs to scale.
+
+		---
 
 		## Transactions
 
 		### These are hard
+
+		![Alt text](img/transactions.png)
 
 		???
 
@@ -337,21 +321,50 @@
 
 		---
 
-		class: inverse
+		## Team structure
 
-		## Architectural Safety
-
-		### Be a town planner and not an architect.
+		> "organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations" 
+		> 
+		> M. Conway
 
 		???
 
-		* Like a town planner define policies and regulations around what buildings need it their design they don't define the design themselves
+		* Conway's law
+		* If you divide your team by technology, you will create technology silos in your applications.
+		* If you create multi-skilled teams and each of these work on an individual service to make an application you will get a loosely coupled microservices architecture because of Conway's law.
+		* Distributed Agile is quite difficult in practice, this might help if you can co-locate each service team
+		
+		---
+
+		## Teams divided by Technology
+
+		![Alt text](img/team_structure_tech.png)
+
+		---
+
+		## Multifunctional Teams
+
+		![Alt text](img/team_structure_micro.png)
+
+		---
+
+		## Architectural Safety
+
+		### Cars not trains
+
+		![Alt text](img/safety.png)
+
+		???
+
+		* Let people act like cars not trains, where trains are on tracks, stop at the same places and leave at consistant times, cars afford a greater degree of freedom, however within some rule boundaries. These rules can be different from company to company. Like driving on the correct side of the road, it doesn't matter if you choose one side, it matters greatly however that you choose a side and stick with it.
 		* Use timeouts, circuit breakers and bulk heads
 		* In the references there is a Netflix talk that goes through this in detail.
 		* Define archetypes, that developers can use off the shelf to build their services
 		* If a service is to use a new technology the team would be expected to build their service conforming to the regulations.
 
 		---
+
+		class: inverse
 
 		# Part IV: Getting started
 		*Ok, when?*
@@ -371,66 +384,31 @@
 		## Decision Tree
 		![Alt text](img/decisiontree.png)
 
-		---
-
-		class: inverse
-
-		## Greenfields
-
-		### Make your standards in iteration 0 and go for it
-
 		???
 
-		* Make your standards highly visible
-		* Make sure you constantly
-
-		---
-
-		class: inverse
-
-		## Do you do any feature enhancements on this application?
-
-		### If no, leave it
-
-		???
-
+		* Greenfields, Make your standards in iteration 0 and go for it
 		* Suits environments with changing conditions, not largely static applications
-
-		---
-
-		class: inverse
-
-		## Is the feature enhancement confined to a single problem domain?
-
-		### Try microservices?
-
-		???
-
 		* Is the maintenance, acting on a particular problem domain of the application that could be pulled out as part of the maintenance work?
-
-		---
-
-		class: inverse
-
-		## Is this enhancement to a part of the application that can be reused elsewhere?
-
-		### Try microservices?
-
-		???
-
 		* By pulling this functionality into a microservice you can reuse the functionality elsewhere in your ecosystem.
+		* Targetting low risk parts of the application is an obvious way to break some of the functionality away.
 
 		---
 
 		class: inverse
 
-		## Is this enhancement on a very low risk piece of the application?
+		## Netflix - Karyon
 
-		### Try microservices?
+		### Microservices Template
+
+		https://github.com/Netflix/karyon
 
 		???
 
-		* Targetting low risk parts of the application is an obvious way to break some of the functionality away.
+		* Built by Netflix, so heavily integrated with netflix's other open source tools
+		* Built in service registry
+		* Property management
+		* pre built status page and health checks
+		* Latency monkey
 
 		---
 
@@ -439,10 +417,11 @@
 		# Conclusion
 
 		### Microservices is to SOA, as XP is to AGILE
+		### Small, well defined services working together to create a useful application
+		### Standardise the pipes and connectors, allow autonomy in the service implementations
 		### Logging is important, aggregate to create and end-to-end picture of your application
-		### Standardise the deployment process, deploy often
-		### Interfaces - Define you interfaces upfront, use HTTP RESTful
-		### Empower your team - By standardising the pipes and connectors and giving autonomy in the service implementation
+		### Standardise the deployment process, deploy often and quickly
+		### Understand how team structure can impact your application
 
 		---
 
@@ -451,8 +430,9 @@
 		# Picks
 
 		## Dash - Mac Offline Documentation
-		## Podcasts - Arrested DevOps, Food Fight Show, Devchat.tv and AWS Pocast****
-		## A blog post on making a quadcopter?
+		## Podcasts - Arrested DevOps, Food Fight Show, Devchat.tv and AWS Podcast****
+		## Firebase
+		## S3 and Backups
 
 		---
 
@@ -462,9 +442,7 @@
 
 		### Cyclist
 		### Quadcopters
-		
-		<br/>
-		<iframe width="420" height="315" src="//www.youtube.com/embed/4xA0LiaLDJo" frameborder="0" allowfullscreen></iframe>
+		### Dogs
 
 		???
 
@@ -473,15 +451,21 @@
 
 		---
 
+		# Go home nature, you're drunk
+
+		![Alt text](img/dogs.png)
+
+		---
+
 		class: inverse
 
 		# Follow up
 
-		> http://www.infoq.com/news/2014/03/microservices-soa
+		> http://martinfowler.com/articles/microservices.html
 		> 
 		> http://yow.eventer.com/yow-2013-1080/practical-considerations-for-microservice-architectures-by-sam-newman-1389
 		>
-		> 
+		> http://www.confreaks.com/videos/2488-railsconf2013-how-to-talk-to-developers
 
 		</textarea>
 		<script src="lib/remark/out/remark.min.js" type="text/javascript"></script>
