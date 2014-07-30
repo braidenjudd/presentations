@@ -33,10 +33,6 @@
 		>
 		> @pragmaticyclist
 
-		???
-
-		* Please get your phones out
-
 		---
 		
 		class: inverse
@@ -73,7 +69,18 @@
 
 		???
 
+		* COLLECTION
+		* LOOSELY COUPLED, HIGHLY COHESIVE
+		* SMALL, 1000 lines. APP FRAMEWORKS HELP
+		* BY PROBLEM DOMAIN OR BUSINESS CONCEPT
+		* PEERS WORKING TOGETHER
+		* STANDARD INTERFACES
+		* SOFTWARE TEAM ANALOGY
+
+		...
+
 		* A collection of services that by working together do something useful for the a customer.
+		* Loosely coupled, highly cohesive
 		* Small-ish, < 1000 lines of code, this can actually mean a lot with modern day framworks.
 		* Based around problem domains or a business concept.
 		* Services are peers of each other, none really being more important then another.
@@ -96,12 +103,18 @@
 
 		![Alt text](img/aws_loaded.png)
 
+		???
+
+		* LOADING 3 DIFFERENT SERVICES
+
 		---
 
 		## Netflix
 		### Recomended for me 
 
 		![Alt text](img/netflix.png)
+
+		* AGAIN, GOES DOWN MAYBE SHOWS POPULAR MOVIES INSTEAD
 
 		---
 
@@ -110,6 +123,10 @@
 		### Books I may also like
 
 		![Alt text](img/amazon.png)
+
+		???
+
+		* AGAIN, GOES DOWN DOES NOT BREAK THE CUSTOMER EXPERIENCE, DEGRADES IT
 
 		---
 
@@ -132,7 +149,13 @@
 
 		???
 
-		* Empowerment - Services solves a problem that can be owned by a team or a group. Empowering them to solve the problem how they want, we just ditate the interface
+		* EMPOWERED PEOPLE ARE AUTONOMOUS
+		* TRY NEW TECH WITH LESS RISK
+		* ALLOWS TO HIRE PEOPLE TO SOLVE PROBLEMS NOT AS A JAVA DEV
+
+		...
+
+		* Empowerment - Services solves a problem that can be owned by a team or a group. Empowering them to solve the problem how they want, we just dictate the interface
 		* Less risk in trialing a new technology
 		* Easy to enable new technology, we can trial new technologies on lesser services (in terms of complexity of the problems they solve). Enables you to hire people to solve problems not for their knowledge of a technology stack.
 
@@ -145,6 +168,12 @@
 		![Alt text](img/finegrainedscalability.png)
 
 		???
+
+		* FINE GRAINED SCALING
+		* OPTIMISE AND TWEAK CERTAIN PARTS, LANGUAGE THAT SUITS PROBLEM
+		* SCALING INNOVATION AND PRODUCT DELIVERY
+
+		...
 
 		* Perhaps but we can scale a lot better in a microservices world, we can scale the 'hot' services rather than just scale the whole thing. It also helps with DB scaling, DB scaling can be hard however in a small fine grained architecture persistance layers are rarely so large scaling becomes a major issue.
 		* Scalability of innovation and product delivery. Teams are no longer planning independent changes, rather they can define the interface to their service and build changes within those bounds without the knowledge or the service customers.
@@ -160,6 +189,12 @@
 
 		???
 
+		* AGILE MANIFESTO - TRIAL, MEASURE, LEARN, CORRECT, REPEAT
+		* DEPLOY PARTS INDIVIDUALLY, BECAUSE LOOSELY COUPLED
+		* NEW PAYMENT TECH
+
+		...
+
 		* The original AGILE manifesto was focused on trial, measure and correction the repeat. Microservices is an obvious fit for that working model as you can trial new technologies, ways of working, even ide's or hosting. Measure the results, learn and feed into the next service.
 		* Can deploy services, and therefore parts of your application individually. No large cordinated deployments with a large amount of associated risk.
 		* Means you are able to go from feature inception to delivery a lot faster.
@@ -173,6 +208,13 @@
 		![Alt text](img/resiliency.png)
 
 		???
+
+		* HANDLE FAILURE, ISOLATED, LOOSELY COUPLED
+		* CUSTOMER EXPERIENCE DEGRADED NOT REMOVED
+		* LESS RISK, ALL EGGS IN ONE BASKET
+
+		...
+
 
 		* Services that are loosely coupled can continue even while one of their peers has failed. A great example of this is the Netflix and their cloud native, non-fragile archnitecture.
 		* Easier to identify, with good logging where bottlenecks are occuring, but measuring end-to-end uses of an applications and measure the response time of each service.
@@ -190,6 +232,12 @@
 		![Alt text](img/geography.png)
 
 		???
+
+		* DISTRIBUTED AGILE IS HARD
+		* HAVE TEAMS DISTRIBUTED AS YOU PLAN TO DISTRIBUTE YOUR APPLICATION
+		* SEARCH FOR TALENT MORE PLACES
+
+		...
 
 		* Distrubuted AGILE is hard
 		* With microservices you could have distributed teams, each location solving a different problem and therefore working on different services
@@ -209,6 +257,13 @@
 		![Alt text](img/standardisation.png)
 
 		???
+
+		* AUTONOMY V STANDARD
+		* MANUFACTORING WANT STANDARDS
+		* STARTUPS WANT AUTONOMY
+		* LIVE SOMEWHERE IN THE MIDDLE
+
+		...
 
 		* Find a place on a line
 		* Enterprises tend to er on standardise
@@ -231,6 +286,14 @@
 
 		???
 
+		* STANDARDISE THE PIPES AND CONNECTIONS
+		* USE HTTP, HTTP ERROR CODES. STANDARD WELL KNOWN TECH
+		* PROVEN AT WEB SCALE
+		* HTTP IS LANGUAGE AGNOSTIC
+		* FREEDOM WITHIN SERVICES 
+
+		...
+
 		* Standardise all the pipes and connections, allow autonomy and discretion in the service implementation
 		* Important to define the interfaces between them, not necessarily the technology that supports them.
 		* REST is a good and well defined standard. Use for the standard error codes HTTP provides.
@@ -245,6 +308,13 @@
 
 		???
 
+		* DEPLOY QUICKLY - As soon as release is ready
+		* DEPLOY OFTEN - Deploy once a day not change thursday
+		* ALL ABOUT LOWERING RISK OF CHANGE
+		* GRAPH
+
+		...
+
 		* By deploying quickly i mean when the release is ready it should rapidly move to production.
 		
 		---
@@ -256,6 +326,13 @@
 		![Alt text](img/gooddeployments.png)
 
 		???
+
+		* STANDARDISE YOUR DEPLOYMENT TOOLS AND PROCESS.
+		* DIFFERENT TECH, SAME TOOLS AND PROCESS
+		* Chef, Puppet or Ansible
+		* DOCKER
+
+		...
 
 		* Often means deploying small production ready changes
 		* Lowers the risk of changes as they are smaller, less coupled and therefore more easy to rollback
@@ -273,6 +350,11 @@
 
 		???
 
+		* CONSUMER WRITES TESTS
+		* SERVICE RUN THEMS
+
+		...
+
 		* Get the customers of your service write tests for your services they consume, this forms a contract
 		* Run these tests before each deployment
 
@@ -285,6 +367,14 @@
 		![Alt text](img/logging.png)
 
 		???
+
+		* LOG EVERYTHING
+		* USE LOG AGGREGATION TOOLS
+		* PROACTIVE NOT REACTIVE
+		* STATUS CODES AND LATENCY
+		* TRANSACTION IDs
+
+		...
 
 		* When something is broken on a monolithic system, it is very easy to see what is broken.
 		* In the microservice world, it is much more difficult. As it could be one of N disparate services.
@@ -302,6 +392,12 @@
 
 		???
 
+		* A MUST
+		* 1 DEPLOY to 150 A MONTH
+		* WHEN IS AUTOMATION A BAD THING
+
+		...
+
 		* I was not going to include this slide, but deployments, testing and monitoring must be automated.
 		* Can not afford not to automate within a microservices based environment as deployments, testing and monitoring needs to scale.
 
@@ -314,6 +410,12 @@
 		![Alt text](img/transactions.png)
 
 		???
+
+		* AVOID
+		* BE AWARE
+		* MAKE ONE SERVICE
+
+		...
 
 		* Should be aware of any transactions occuring accross service boundaries, such as between an ticketing and payment system.
 		* Transactions couple services together.
@@ -329,10 +431,7 @@
 
 		???
 
-		* Conway's law
-		* If you divide your team by technology, you will create technology silos in your applications.
-		* If you create multi-skilled teams and each of these work on an individual service to make an application you will get a loosely coupled microservices architecture because of Conway's law.
-		* Distributed Agile is quite difficult in practice, this might help if you can co-locate each service team
+		* Conway's law "organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations" 
 		
 		---
 
@@ -340,11 +439,31 @@
 
 		![Alt text](img/team_structure_tech.png)
 
+		???
+
+		* BAD, SILOED APPLICATION
+
+		...
+
+		* If you divide your team by technology, you will create technology silos in your applications.
+		
 		---
 
 		## Multifunctional Teams
 
 		![Alt text](img/team_structure_micro.png)
+
+		???
+
+		* GOOD, SILOED SERVICES (LOOSELY COUPLED)
+		* HIGH COHESION
+		* DISTRIBUTED AGILE
+
+		...
+
+		* If you create multi-skilled teams and each of these work on an individual service to make an application you will get a loosely coupled microservices architecture because of Conway's law.
+		* Distributed Agile is quite difficult in practice, this might help if you can co-locate each service team
+		
 
 		---
 
@@ -355,6 +474,15 @@
 		![Alt text](img/safety.png)
 
 		???
+
+		* Act like cars not trains
+		* TIMEOUTS
+		* CIRCUIT BREAKERS
+		* BULK HEADS
+		* ARCHETYPES
+		* NEW SERVICE IMPLEMENT SAFETY THEMSELVES
+
+		...
 
 		* Let people act like cars not trains, where trains are on tracks, stop at the same places and leave at consistant times, cars afford a greater degree of freedom, however within some rule boundaries. These rules can be different from company to company. Like driving on the correct side of the road, it doesn't matter if you choose one side, it matters greatly however that you choose a side and stick with it.
 		* Use timeouts, circuit breakers and bulk heads
@@ -386,6 +514,13 @@
 
 		???
 
+		* GREENSFIELDS
+		* SINGLE DOMAIN
+		* LOW RISK
+		* REUSE
+
+		...
+
 		* Greenfields, Make your standards in iteration 0 and go for it
 		* Suits environments with changing conditions, not largely static applications
 		* Is the maintenance, acting on a particular problem domain of the application that could be pulled out as part of the maintenance work?
@@ -405,10 +540,10 @@
 		???
 
 		* Built by Netflix, so heavily integrated with netflix's other open source tools
-		* Built in service registry
+		* Service registry
 		* Property management
-		* pre built status page and health checks
-		* Latency monkey
+		* Status page and health checks
+		* Latency monitoring
 
 		---
 
@@ -416,8 +551,8 @@
 
 		# Conclusion
 
-		### Microservices is to SOA, as XP is to AGILE
-		### Small, well defined services working together to create a useful application
+		### Loosely coupled and highly cohesive
+		### Small, well defined adn limited to a single business problem
 		### Standardise the pipes and connectors, allow autonomy in the service implementations
 		### Logging is important, aggregate to create and end-to-end picture of your application
 		### Standardise the deployment process, deploy often and quickly
