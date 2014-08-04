@@ -37,10 +37,14 @@
 
 		# Why would we do E2E testing?
 
+		### Gaining confidence your application works
+
+		???
+
 		* Testing the application as a user, not a computer
-		* Backend v Frontend
+		* Backend v Frontend. Do they work together nicely?
 		* Have I created a useful change, can I release this code?
-		* E2E testing replaces unit testing (JOKE!)
+		* E2E testing does replaces unit testing
 
 		---
 
@@ -61,7 +65,37 @@
 
 		---
 
-		# Built on WebdriverJS
+		class: center
+
+		# What makes up Protractor JS 
+
+		Built on WebdriverJS
+
+		---
+
+		# Why is it good to write tests in JavaScript?
+
+		Context switching
+
+
+		---
+
+		# Built for Angular JS
+
+
+
+		* Protractor understands angular
+		* Angular gives your page structure
+		* Protractor understands, templates and the dependency injection
+
+
+		---
+
+		# Differencs with the Angular Scenario Runner
+
+		* More control over the browser
+		* Same, high level integration with Angular
+		* Does not run in an iframe you have to manage youself.
 
 		---
 
@@ -70,6 +104,49 @@
 		```
 		npm install -g protractor
 		```
+
+		---
+
+		# Setup
+
+		```
+		webdriver-manager update
+		webdriver-manager start
+		```
+
+		## Congratulations you have a webdriver server up and running
+
+		---
+
+		# Bonus - Protractor with a Proxy
+
+		## webdriver-manager does not work with a proxy
+
+		* Download the webdrive jar and chromedriver.exe manually
+		* Match the versions (DO NOT JUST GET THE LATEST!)
+		* Copy to the angular locations
+		* Happy Days
+
+		---
+
+		# Sauce Labs
+
+		---
+
+		# Allows you to write tests in Jasmine
+
+		* Use the same notation as your unit tests
+		* Patched to understand angular and async (waitForAngular())
+		* See: https://github.com/angular/protractor/issues/909
+
+		---
+
+		# What does it not do well?
+
+		* Not angular parts are still hard
+		* Setup and teardown of database data
+		* Keen to see what others have done here
+
 		---
 
 		# Now you need a configuration file
@@ -89,17 +166,10 @@
 
 		# Mention about learning don't know what you don't know. This isn't a lecture or a sit down course. Designed to ge you excited about the capability. Controllers, Views, services. Then talk to someone RE: directives...
 
-		# Not and expert. 5/10
-
-		# Do Picks
-
 		---
 
 		Why does it 
 
-		---
-
-		Context switching
 
 		---
 
@@ -121,16 +191,32 @@
 
 		Configuration File
 
+		* onPrepare
 
 		---
 
-		Interactive mode
+		# Interactive mode/ Element Explorer
+
+		* Show browser is real
+		* Something that does not exist - show easy to comprehend error message
+		* Something that does exist - getText(), click() etc.
 
 		---
 
 		Shortcut notation
 
-		
+		---
+
+		# ```element()``` and ```element.all()```
+
+		---
+
+		Angular binding 
+
+		* by.binding
+		* by.model
+		* by.repeater
+		* by.css
 
 		---
 
@@ -142,6 +228,10 @@
 		---
 
 		Page objects
+
+		* Split the information about how to interact with the page from the test logic
+		* Can just require 
+		* http://martinfowler.com/bliki/PageObject.html
 
 		---
 
@@ -155,7 +245,7 @@
 		</textarea>
 		<script src="lib/remark/out/remark.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			var slideshow = remark.create();
+			var slideshow = remark.create({ratio: '16:9'});
 		</script>
 	</body>
 </html>
