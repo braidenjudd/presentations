@@ -29,39 +29,115 @@
 
 		class: inverse
 
-		## What kind of tests do you get the most value from?
+		# What is your experience with protractor?
 
 		http://braiden.firebaseapp.com
 
 		---
 
+		layout: false
+		class: center, inverse, middle
+
+		# What do I want you to get out of this?
+		
+		*If you go and download and try protractor in the next week, I win*
+
+		???
+
+		* If you have already got an experience with protractor, this might confirm something you know
+		* If you have a high level of experience, I expect to be called out on things and we can disucss
+
+		---
+
+		layout: false
+		class: center, inverse, middle
+
+		# Why are tests good?
+
+		*Tests as documentation*
+
+		???
+
+		* Examples of how yo use your API or site
+		* In the case of E2E testing, in things like protractor. It is good for translating story card requirements into real documented things.
+		* Going a bit Meta, but tests can and should be used as documentation, so the easier to read they are the better they are.
+		* DHH Keynote - https://www.youtube.com/watch?v=9LfmrkyP81M
+		* Dave Thomas - http://rubyrogues.com/164-rr-staying-sharp-with-dave-thomas/
+
+		---
+
+		layout: false
+		class: center
+
+		# What is the best kind of testing?
+
+		![Angular Contributions](img/testingPyramid.png)
+
+		---
+
+		.pull-left[
+			## Unit Testing
+
+			- Does this function work?
+			- Fast feedback, run on save
+			- Best Defence against bugs
+
+		]
+
+		.pull-center[
+		<br/><br/><br/><br/><br/><br/><br/>
+		# VS
+		]
+		<br/>
+		.pull-right[
+
+			## End-to-end testing
+			- Do the sum of the pieces make a greater whole?
+			- Is the application usable, by a real user?
+			- Is a complement, not a replacement to unit tests
+		]
+
+		---
+		class: inverse, center, middle
+		layout: false
+
 		# Why would we do E2E testing?
 
-		### Gaining confidence your application works
+		*Gaining confidence your application works, for a real user*
 
 		???
 
 		* Testing the application as a user, not a computer
 		* Backend v Frontend. Do they work together nicely?
-		* Have I created a useful change, can I release this code?
-		* E2E testing does replaces unit testing
+		* If unit tests are hard to run it probably means you application is hard to run
 
 		---
 
 		# Why is E2E testing hard?
 
-		* You need an environment, need working parts
+		* You need an environment, need working parts. Webdriver, Chrome and you App. Then run the tests.
 		* Very hard to debug
-		* Sloooooooooooow
+		* Sloooooooooooooooooooooooooooooooooooooooooooooooow
 		* Tests, generally have to be up to date with the layout. Hard to keep up to date.
+
+		---
+
+		# Why is it good to write tests in JavaScript?
+
+		*Context switching*
+
+		![Angular Contributions](img/contextSwitching.png)
 
 		---
 
 		# What is Protractor JS?
 
-		* Screenshot - of contributions
+		![Angular Contributions](img/contributions.png)
 
 		???
+
+		* Written by google to make testing angular JS application easier
+		* Introduced 1.2
 
 		---
 
@@ -69,67 +145,36 @@
 
 		# What makes up Protractor JS 
 
-		Built on WebdriverJS
+		*Webdriver + Chrome (a brower) + Protractor JS*
+
+		![Angular Contributions](img/protractorStack.png)
 
 		---
 
-		# Why is it good to write tests in JavaScript?
+		class: center, middle, inverse
 
-		Context switching
-
-
-		---
 
 		# Built for Angular JS
 
+		*Protractor understands angular*
 
+		???
 
 		* Protractor understands angular
-		* Angular gives your page structure
-		* Protractor understands, templates and the dependency injection
-
+		* Understands the way angular does binding
+		* Angular gives your page structure and templates and dependency injection
 
 		---
 
-		# Differencs with the Angular Scenario Runner
+		# Angular Scenario Runner - Differences
 
-		* More control over the browser
+		* Webdriver and Selenium
+		* Different syntax
+		* Can run tests against remote servers
+		* Can use Sauce Labs
+		* More control over the browser and Firefox, Chrome, Safari etc.
 		* Same, high level integration with Angular
-		* Does not run in an iframe you have to manage youself.
-
-		---
-
-		# Installation
-
-		```
-		npm install -g protractor
-		```
-
-		---
-
-		# Setup
-
-		```
-		webdriver-manager update
-		webdriver-manager start
-		```
-
-		## Congratulations you have a webdriver server up and running
-
-		---
-
-		# Bonus - Protractor with a Proxy
-
-		## webdriver-manager does not work with a proxy
-
-		* Download the webdrive jar and chromedriver.exe manually
-		* Match the versions (DO NOT JUST GET THE LATEST!)
-		* Copy to the angular locations
-		* Happy Days
-
-		---
-
-		# Sauce Labs
+		* Runs in an iframe
 
 		---
 
@@ -138,6 +183,8 @@
 		* Use the same notation as your unit tests
 		* Patched to understand angular and async (waitForAngular())
 		* See: https://github.com/angular/protractor/issues/909
+
+		![Alt text](img/jasmineLogo.png)
 
 		---
 
@@ -149,45 +196,56 @@
 
 		---
 
+		class: inverse, middle, center
+
+		## Be wary of old documentation
+		*Protractor has changed*
+
+		???
+
+		* Noticed a lot in my research, old ways which no longer work
+
+		---
+
+		class: inverse, middle, center
+
+		# Installation
+
+		```
+		npm install -g protractor
+		```
+
+		---
+
+		class: inverse, middle, center
+
+		# Setup
+
+		```
+		webdriver-manager update
+		webdriver-manager start
+		```
+
+		*Congratulations you have a webdriver server up and running*
+
+		???
+
+		* A few moving parts, including chromedriver and selenium
+
+		---
+
+		# Bonus - Protractor with a Proxy
+
+		*webdriver-manager does not work with a proxy*
+
+		* Download the webdrive jar and chromedriver.exe manually
+		* Match the versions (DO NOT JUST GET THE LATEST!)
+		* Copy to the angular locations
+		* Happy Days
+
+		---
+
 		# Now you need a configuration file
-
-		---
-
-		# Agenda
-
-		1. Introduction
-		2. Deep-dive
-		3. ...
-
-		[NOTE]: Note that you need remark.js alongside this html file, but no internet connection.
-		---
-
-		# Introduction
-
-		# Mention about learning don't know what you don't know. This isn't a lecture or a sit down course. Designed to ge you excited about the capability. Controllers, Views, services. Then talk to someone RE: directives...
-
-		---
-
-		Why does it 
-
-
-		---
-
-		WebdriverJs
-
-		---
-
-		Some sort of coding competition question???
-
-		---
-
-		Meta, Unit tests v E2E tests
-
-		---
-
-		Installation
-
-		---
 
 		Configuration File
 
@@ -197,34 +255,106 @@
 
 		# Interactive mode/ Element Explorer
 
+		???
+
+		* Good place to get started
 		* Show browser is real
 		* Something that does not exist - show easy to comprehend error message
 		* Something that does exist - getText(), click() etc.
 
 		---
 
-		Shortcut notation
+		## Selecting elements
+
+		```
+		element()
+		```
+		* element() returns a single thing
+
+		```
+		element.all()
+		```
+		* returns an array - for repeaters etc.
+
+		???
+
+		* At the core is the ability to select elements
+		* element() returns a single thing
+		* element.all() returns an array - for repeaters etc.
 
 		---
 
-		# ```element()``` and ```element.all()```
+		## Helper methods on the .all()
+
+		* get()
+		* each()
 
 		---
 
-		Angular binding 
+		## Angular specific bindings
 
-		* by.binding
-		* by.model
-		* by.repeater
-		* by.css
+		*by.binding*
+
+		```javascript
+		element(by.binding('blog.title')).getText();
+		```
+
+		```html
+		<h4 ng-bind="blog.title"></h4>
+		```
 
 		---
 
-		Multi browser
+		## Angular specific bindings
 
-		--- 
+		*by.model*
 
-		Going a bit Meta, but tests can and should be used as documentation, so the easier to read they are the better they are.
+		```javascript
+		element(by.model('password')).sendKeys('password');
+		```
+
+		```html
+		<input ... ng-model="password">
+		```
+
+		---
+
+		## Angular specific bindings
+
+		*by.repeater*
+
+		```javascript
+		element(by.repeater('blog in blogs')).get(0).getText();
+		```
+
+		```html
+		<div ng-repeat="blog in blogs" class="...">
+			<a ng-href="#/blogs/{{blog.id}}">
+				<img ng-src="{{blog.avatar}}" class="..."/>
+				<h4 ng-bind="blog.title"></h4>
+			</a>
+		</div>
+		```
+
+		---
+
+		# Demo
+
+		???
+
+		* Site
+		* Run the tests
+		* Show the tests
+
+		---
+
+		# Extras
+		*Others things you should know or understand*
+
+		---
+
+		## Multi browser
+
 		---
 
 		Page objects
@@ -237,10 +367,63 @@
 
 		# Resources
 
-		* http://ramonvictor.github.io/protractor/slides/#/
-		* http://www.ng-newsletter.com/posts/practical-protractor.html
-		* https://www.youtube.com/watch?v=idb6hOxlyb8
-		
+		* Another meetup presentation - http://ramonvictor.github.io/protractor/slides/#/
+		* Ng Newsletter Article - http://www.ng-newsletter.com/posts/practical-protractor.html
+		* Jim Lavin - https://www.youtube.com/watch?v=idb6hOxlyb8
+		* Julie Ralph NG Conf - https://www.youtube.com/watch?v=aQipuiTcn3U
+		* JavaScript Jabber - http://javascriptjabber.com/106-jsj-protractor-with-julie-ralph/
+
+		---
+
+		class: inverse
+
+		# Picks
+
+		## Dash - Mac Offline Documentation
+		## Podcasts - Arrested DevOps, Food Fight Show and Devchat.tv
+		## Particle Fever - Awesome documentation about the LHC
+		## S3 and Backups
+		## Mountain Goat - Rare Breed
+
+		---
+
+		class: inverse
+
+		# About Me
+
+		## Cyclist
+
+		---
+
+		## Dogs
+		*Go home nature, you're drunk*
+
+		![Alt text](img/dogs.png)
+
+		---
+
+		# Quadcopters
+
+		<PHOTO />
+
+		---
+
+		## Have a go!
+
+		http://www.confreaks.com/videos/2488-railsconf2013-how-to-talk-to-developers
+
+		http://javascriptjabber.com/090-jsj-users-groups/
+
+		http://rubyrogues.com/064-rr-presenting-at-conferences/
+
+		http://rubyrogues.com/167-rr-speaking-at-conferences/
+
+		*"If you can't explain it simply, you don't understand it well enough"* Albert Einstein
+
+		???
+
+		* Speaking - Encourage someone to speak about unit testing	
+		* Give it a go, great for personal development
 
 		</textarea>
 		<script src="lib/remark/out/remark.min.js" type="text/javascript"></script>
