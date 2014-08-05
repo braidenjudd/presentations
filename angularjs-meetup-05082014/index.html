@@ -261,12 +261,22 @@
 
 		---
 
-		## Now you need a configuration file
+		## Configuration File
+		*https://github.com/angular/protractor/blob/master/docs/referenceConf.js*
 
-		Configuration File
-
-		* onPrepare
-
+		```javascript
+		exports.config = {
+			seleniumAddress: 'http://localhost:4444/wd/hub',
+			specs: ['*.js'],
+		    jasmineNodeOpts: {
+		        onComplete: null,
+		        isVerbose: true,
+		        showColors: true,
+		        includeStackTrace: true,
+		        defaultTimeoutInterval: 30000
+		    }
+		}
+		```
 		---
 
 		## Synchronous Async?
@@ -277,7 +287,7 @@
 
 		### Some good links explaining what is happening
 		* https://github.com/angular/protractor/blob/master/docs/control-flow.md
-		* See: https://github.com/angular/protractor/issues/909
+		* https://github.com/angular/protractor/issues/909
 
 		---
 
@@ -462,6 +472,19 @@
 		---
 
 		## Multi browser
+		*https://github.com/angular/protractor/blob/master/docs/browser-setup.md*
+
+		```javascript
+		exports.config = {
+			seleniumAddress: 'http://localhost:4444/wd/hub',
+
+			multiCapabilities: [{
+				'browserName' : 'chrome'
+			}, {
+				'browserName' : 'firefox'
+			}]
+		};
+		```
 
 		---
 
@@ -470,6 +493,21 @@
 
 		* Can just require, we are in node
 		* http://martinfowler.com/bliki/PageObject.html
+
+		```javascript
+		// Setup
+		var Homepage = function() {
+			this.blogs = element.all(by.repeater('blog in blogs'));
+
+			this.get = function() {
+				browser.get('http://localhost:3000');
+			};
+		};
+		module.exports = Homepage;
+
+		// Usage
+		var Homepage = require('./homepagePageObject.js');
+		```
 
 		---
 
@@ -483,6 +521,7 @@
 		   |-- tests
 		      |-- unit
 		      |-- e2e
+		         |-- protractor.conf.js
 		         |-- homepage
 		            |-- homepagePageObject.js
 		            |-- homepageSpec.js
@@ -495,6 +534,22 @@
 		---
 
 		## Test Suites
+
+		### Config
+
+		```javascript
+		suites: {
+			homepage: 'tests/e2e/homepage/**/*Spec.js',
+			blogs: 'tests/e2e/blogs/**/*Spec.js'
+		}
+
+		```
+
+		### Running
+
+		```javascript
+		protractor tests/e2e/protractor.conf.js --suite homepage
+		```
 
 		---
 
@@ -564,6 +619,7 @@
 
 		## Resources
 
+		* Official Repo - https://github.com/angular/protractor
 		* Another meetup presentation - http://ramonvictor.github.io/protractor/slides/#/
 		* Ng Newsletter Article - http://www.ng-newsletter.com/posts/practical-protractor.html
 		* Jim Lavin - https://www.youtube.com/watch?v=idb6hOxlyb8
@@ -587,7 +643,7 @@
 		## Cyclist
 		*Enjoy building and riding bikes*
 
-		![Alt text](img/bike.jpg)
+		![Alt text](img/bike.png)
 
 		---
 
@@ -599,9 +655,9 @@
 		---
 
 		## Quadcopters
-		*Wait to write an API around the quadcopter, if you are keen to join me let me know*
+		*Wanting to write an API around the quadcopter, if you are keen to join me let me know*
 
-		<PHOTO />
+		![Alt text](img/quad.jpg)
 
 		---
 
