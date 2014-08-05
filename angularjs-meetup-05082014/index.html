@@ -29,6 +29,15 @@
 
 		class: inverse
 
+		# Braiden Judd
+		> Work at Suncorp
+		>
+		> @pragmaticyclist
+
+		---
+
+		class: inverse
+
 		## What is your experience with protractor?
 
 		http://braiden.firebaseapp.com
@@ -91,13 +100,16 @@
 		* Does this function work?
 		* Fast feedback, run on save
 		* Best Defence against bugs
+		* Use to test corner or edge cases
 
 		# VS
 
 		## End-to-end testing
 		* Do the sum of the pieces make a greater whole?
+		* Slow and expensive
 		* Is the application usable, by a real user?
 		* Is a complement, not a replacement to unit tests
+		* Test the happy paths
 
 		---
 		class: inverse, center, middle
@@ -184,7 +196,7 @@
 		* Can use Sauce Labs
 		* More control over the browser and Firefox, Chrome, Safari etc.
 		* Same, high level integration with Angular
-		* Runs in an iframe
+		* Scenario Runner ran in an iframe
 
 		---
 
@@ -236,6 +248,7 @@
 		class: inverse, middle, center
 
 		## Setup
+		*Need java installed*
 
 		```bash
 		webdriver-manager update
@@ -254,7 +267,7 @@
 
 		*webdriver-manager does not work with a proxy*
 
-		* Download the webdrive jar and chromedriver.exe manually
+		* Download the webdriver jar and chromedriver.exe manually
 		* Match the versions (DO NOT JUST GET THE LATEST!)
 		* Copy to the angular locations
 		* Happy Days
@@ -277,6 +290,7 @@
 		    }
 		}
 		```
+
 		---
 
 		## Synchronous Async?
@@ -288,25 +302,6 @@
 		### Some good links explaining what is happening
 		* https://github.com/angular/protractor/blob/master/docs/control-flow.md
 		* https://github.com/angular/protractor/issues/909
-
-		---
-
-		## Interactive mode/ Element Explorer
-
-		* Good place to get started
-		* Browser is real
-		* All commands are async.
-
-		```bash
-		/usr/local/lib/node_modules/protractor/bin/elementexplorer.js <URL>
-		```
-
-		???
-
-		* Shows browser is real
-		* Something that does not exist - show easy to comprehend error message
-		* Something that does exist - getText(), click() etc.
-		* Show async, console.log does not work
 
 		---
 
@@ -337,24 +332,6 @@
 		* At the core is the ability to select elements
 		* element() returns a single thing
 		* element.all() returns an array - for repeaters etc.
-
-		---
-
-		## Helper methods on the .all()
-
-		```javascript
-		var blogs = element.all(by.repeater('blog in blogs'))
-		```
-
-		Command | Use | Example |
-		------------- |------------- |-------------
-		get() | *Get a particular item* | ```blogs.get(1).getText()``` |
-		each() | *Loop through each item* | ```blogs.each(function(blog) { blog.getText() })``` |
-		first() | *The first item* | ```blogs.first().getText()``` |
-		last() | *The last item* | ```blogs.last().getText()```  |
-		count() | *The number of items selected* | ```blogs.count()``` |
-
-		*Some others like map, filter and reduce*
 
 		---
 
@@ -438,6 +415,24 @@
 
 		---
 
+		## Helper methods on the .all()
+
+		```javascript
+		var blogs = element.all(by.repeater('blog in blogs'))
+		```
+
+		Command | Use | Example |
+		------------- |------------- |-------------
+		get() | *Get a particular item* | ```blogs.get(1).getText()``` |
+		each() | *Loop through each item* | ```blogs.each(function(blog) { blog.getText() })``` |
+		first() | *The first item* | ```blogs.first().getText()``` |
+		last() | *The last item* | ```blogs.last().getText()```  |
+		count() | *The number of items selected* | ```blogs.count()``` |
+
+		*Some others like map, filter and reduce*
+
+		---
+
 		## User Events
 
 		*How to be a real user*
@@ -447,6 +442,48 @@
 		click() | *Clicks on a particular item* | ```element(by.id('ok')).click()``` |
 		sendKeys() | *Enters text* | ```element(by.model('password')).sendKeys('password')``` |
 		protractor.Key.ENTER | *Sends special key events* | ```element(by.model('password')).sendKeys('password', protractor.Key.ENTER)``` |
+
+		---
+
+		## Interactive mode/ Element Explorer
+
+		* Good place to get started
+		* Browser is real
+		* All commands are async.
+
+		```bash
+		/usr/local/lib/node_modules/protractor/bin/elementexplorer.js <URL>
+		```
+
+		???
+
+		* Shows browser is real
+		* Something that does not exist - show easy to comprehend error message
+		* Something that does exist - getText(), click() etc.
+		* Show async, console.log does not work
+
+		---
+
+		## Page Objects
+		*Encapsulate the information about how to interact with the page from the test logic*
+
+		* Can just require, we are in node
+		* http://martinfowler.com/bliki/PageObject.html
+
+		```javascript
+		// Setup
+		var Homepage = function() {
+			this.blogs = element.all(by.repeater('blog in blogs'));
+
+			this.get = function() {
+				browser.get('http://localhost:3000');
+			};
+		};
+		module.exports = Homepage;
+
+		// Usage
+		var Homepage = require('./homepagePageObject.js');
+		```
 
 		---
 
@@ -485,30 +522,6 @@
 			}]
 		};
 		```
-
-		---
-
-		## Page Objects
-		*Encapsulate the information about how to interact with the page from the test logic*
-
-		* Can just require, we are in node
-		* http://martinfowler.com/bliki/PageObject.html
-
-		```javascript
-		// Setup
-		var Homepage = function() {
-			this.blogs = element.all(by.repeater('blog in blogs'));
-
-			this.get = function() {
-				browser.get('http://localhost:3000');
-			};
-		};
-		module.exports = Homepage;
-
-		// Usage
-		var Homepage = require('./homepagePageObject.js');
-		```
-
 		---
 
 		## Test Structure
