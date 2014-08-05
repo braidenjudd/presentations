@@ -532,23 +532,23 @@
 			};
 
 			browser.addMockModule('disableNgAnimate', disableNgAnimate);
-		},
- 		```
+		}
+		```
 
- 		---
+		---
 
  		## Taking Screenshots
- 		*https://github.com/angular/protractor/blob/master/docs/faq.md*
+		*https://github.com/angular/protractor/blob/master/docs/faq.md*
 
- 		```javascript
- 		browser.takeScreenshot().then(function(png) {
+		```javascript
+		browser.takeScreenshot().then(function(png) {
 			var stream = fs.createWriteStream("/tmp/screenshot.png");
 			stream.write(new Buffer(png, 'base64'));
 			stream.end();
 		});
- 		```
+		```
 
- 		---
+		---
 
 		## Testing non angular sites
 
