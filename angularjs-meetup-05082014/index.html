@@ -29,7 +29,7 @@
 
 		class: inverse
 
-		# What is your experience with protractor?
+		## What is your experience with protractor?
 
 		http://braiden.firebaseapp.com
 
@@ -38,7 +38,7 @@
 		layout: false
 		class: center, inverse, middle
 
-		# What do I want you to get out of this?
+		## What do I want you to get out of this?
 		
 		*If you go and download and try protractor in the next week, I win*
 
@@ -49,18 +49,29 @@
 
 		---
 
-		layout: false
-		class: center, inverse, middle
+		class: inverse, middle, center
 
-		# Why are tests good?
+		# Theory
+		*The boring parts of testing*
+
+		---
+
+		layout: false
+
+		## Why are tests good?
 
 		*Tests as documentation*
 
+		* Should be easy to read
+		* Can be used to codify user stories
+		* DHH Keynote - https://www.youtube.com/watch?v=9LfmrkyP81M
+		* Dave Thomas - http://rubyrogues.com/164-rr-staying-sharp-with-dave-thomas/
+
 		???
 
-		* Examples of how yo use your API or site
+		* Tests can be used as documentation, easier to read the better
+		* Examples of how to use your API or site
 		* In the case of E2E testing, in things like protractor. It is good for translating story card requirements into real documented things.
-		* Going a bit Meta, but tests can and should be used as documentation, so the easier to read they are the better they are.
 		* DHH Keynote - https://www.youtube.com/watch?v=9LfmrkyP81M
 		* Dave Thomas - http://rubyrogues.com/164-rr-staying-sharp-with-dave-thomas/
 
@@ -69,33 +80,24 @@
 		layout: false
 		class: center
 
-		# What is the best kind of testing?
+		## What is the best kind of testing?
 
 		![Angular Contributions](img/testingPyramid.png)
 
 		---
 
-		.pull-left[
-			## Unit Testing
+		## Unit Testing
 
-			- Does this function work?
-			- Fast feedback, run on save
-			- Best Defence against bugs
+		* Does this function work?
+		* Fast feedback, run on save
+		* Best Defence against bugs
 
-		]
-
-		.pull-center[
-		<br/><br/><br/><br/><br/><br/><br/>
 		# VS
-		]
-		<br/>
-		.pull-right[
 
-			## End-to-end testing
-			- Do the sum of the pieces make a greater whole?
-			- Is the application usable, by a real user?
-			- Is a complement, not a replacement to unit tests
-		]
+		## End-to-end testing
+		* Do the sum of the pieces make a greater whole?
+		* Is the application usable, by a real user?
+		* Is a complement, not a replacement to unit tests
 
 		---
 		class: inverse, center, middle
@@ -130,7 +132,14 @@
 
 		---
 
-		# What is Protractor JS?
+		class: inverse, middle, center
+
+		# Protractor JS
+		*What is it?*
+
+		---
+
+		## What is Protractor JS?
 
 		![Angular Contributions](img/contributions.png)
 
@@ -138,12 +147,13 @@
 
 		* Written by google to make testing angular JS application easier
 		* Introduced 1.2
+		* Just went 1.0 ~2 weeks ago
 
 		---
 
 		class: center
 
-		# What makes up Protractor JS 
+		## What makes up Protractor JS 
 
 		*Webdriver + Chrome (a brower) + Protractor JS*
 
@@ -154,7 +164,7 @@
 		class: center, middle, inverse
 
 
-		# Built for Angular JS
+		## Built for Angular JS
 
 		*Protractor understands angular*
 
@@ -166,7 +176,7 @@
 
 		---
 
-		# Angular Scenario Runner - Differences
+		## Angular Scenario Runner - Differences
 
 		* Webdriver and Selenium
 		* Different syntax
@@ -178,20 +188,19 @@
 
 		---
 
-		# Allows you to write tests in Jasmine
+		## Allows you to write tests in Jasmine
 
 		* Use the same notation as your unit tests
 		* Patched to understand angular and async (waitForAngular())
-		* See: https://github.com/angular/protractor/issues/909
 
 		![Alt text](img/jasmineLogo.png)
 
 		---
 
-		# What does it not do well?
+		## What does it not do well?
 
 		* Not angular parts are still hard
-		* Setup and teardown of database data
+		* Setup and teardown of database data (onPrepare?)
 		* Keen to see what others have done here
 
 		---
@@ -209,9 +218,16 @@
 
 		class: inverse, middle, center
 
-		# Installation
+		# Getting Started
+		*Ok, I want it. How do I get setup?*
 
-		```
+		---
+
+		class: inverse, middle, center
+
+		## Installation
+
+		```bash
 		npm install -g protractor
 		```
 
@@ -219,9 +235,9 @@
 
 		class: inverse, middle, center
 
-		# Setup
+		## Setup
 
-		```
+		```bash
 		webdriver-manager update
 		webdriver-manager start
 		```
@@ -234,7 +250,7 @@
 
 		---
 
-		# Bonus - Protractor with a Proxy
+		## Bonus - Protractor with a Proxy
 
 		*webdriver-manager does not work with a proxy*
 
@@ -245,7 +261,7 @@
 
 		---
 
-		# Now you need a configuration file
+		## Now you need a configuration file
 
 		Configuration File
 
@@ -253,14 +269,44 @@
 
 		---
 
-		# Interactive mode/ Element Explorer
+		## Synchronous Async?
+
+		* All the finders etc are async but jasmine is patched to be synchronous
+		* Every command is run in order and waits for the promise to be resolved
+		* ```expect``` is patch to wait for the expectation to resolve before checking
+
+		### Some good links explaining what is happening
+		* https://github.com/angular/protractor/blob/master/docs/control-flow.md
+		* See: https://github.com/angular/protractor/issues/909
+
+		---
+
+		## Interactive mode/ Element Explorer
+
+		* Good place to get started
+		* Browser is real
+		* All commands are async.
+
+		```bash
+		/usr/local/lib/node_modules/protractor/bin/elementexplorer.js <URL>
+		```
 
 		???
 
-		* Good place to get started
-		* Show browser is real
+		* Shows browser is real
 		* Something that does not exist - show easy to comprehend error message
 		* Something that does exist - getText(), click() etc.
+		* Show async, console.log does not work
+
+		---
+
+		## Browser Object
+
+		Command | Use | Example |
+		------------- |------------- |-------------
+		get() | *Gets the page* | ```browser.get('/#/blogs')``` |
+		refresh() | *Does a page refresh* | ```browser.refresh()``` |
+		debugger() | *Injects some helper methods into the browser* | ```browser.debugger()``` |
 
 		---
 
@@ -286,8 +332,19 @@
 
 		## Helper methods on the .all()
 
-		* get()
-		* each()
+		```javascript
+		var blogs = element.all(by.repeater('blog in blogs'))
+		```
+
+		Command | Use | Example |
+		------------- |------------- |-------------
+		get() | *Get a particular item* | ```blogs.get(1).getText()``` |
+		each() | *Loop through each item* | ```blogs.each(function(blog) { blog.getText() })``` |
+		first() | *The first item* | ```blogs.first().getText()``` |
+		last() | *The last item* | ```blogs.last().getText()```  |
+		count() | *The number of items selected* | ```blogs.count()``` |
+
+		*Some others like map, filter and reduce*
 
 		---
 
@@ -302,7 +359,6 @@
 		```html
 		<h4 ng-bind="blog.title"></h4>
 		```
-
 		---
 
 		## Angular specific bindings
@@ -315,8 +371,8 @@
 
 		```html
 		<input ... ng-model="password">
-		```
 
+		```
 		---
 
 		## Angular specific bindings
@@ -324,7 +380,41 @@
 		*by.repeater*
 
 		```javascript
-		element(by.repeater('blog in blogs')).get(0).getText();
+		element.all(by.repeater('blog in blogs')).get(0).getText();
+		```
+
+		```html
+		<div ng-repeat="blog in blogs" class="...">
+			<a ng-href="#/blogs/{{blog.id}}">
+				<img ng-src="{{blog.avatar}}" class="..."/>
+				<h4 ng-bind="blog.title"></h4>
+			</a>
+		</div>
+		```
+		
+		---
+
+		## Angular specific bindings
+
+		*by.id*
+
+		```javascript
+		element(by.id('ok')).click();
+		```
+
+		```html
+		<button ... id="ok">
+		```
+
+		---
+
+		## Chaining locators
+
+		```javascript
+		var blog = element.all(by.repeater('blog in blogs')).first();
+		blog.element(by.tagName('img')).getAttribute('src')
+		// value is whatever {{blog.avatar}} resolves to
+		// 'http://localhost:3000/img/avatar1.jpg'
 		```
 
 		```html
@@ -338,7 +428,23 @@
 
 		---
 
+		## User Events
+
+		*How to be a real user*
+
+		Command | Use | Example |
+		------------- |------------- |-------------
+		click() | *Clicks on a particular item* | ```element(by.id('ok')).click()``` |
+		sendKeys() | *Enters text* | ```element(by.model('password')).sendKeys('password')``` |
+		protractor.Key.ENTER | *Sends special key events* | ```element(by.model('password')).sendKeys('password', protractor.Key.ENTER)``` |
+
+		---
+
+		class: middle, center, inverse
+
 		# Demo
+
+		https://www.youtube.com/watch?v=mZG1ewSO0X4
 
 		???
 
@@ -347,6 +453,8 @@
 		* Show the tests
 
 		---
+
+		class: inverse, middle, center
 
 		# Extras
 		*Others things you should know or understand*
@@ -357,15 +465,104 @@
 
 		---
 
-		Page objects
+		## Page Objects
+		*Encapsulate the information about how to interact with the page from the test logic*
 
-		* Split the information about how to interact with the page from the test logic
-		* Can just require 
+		* Can just require, we are in node
 		* http://martinfowler.com/bliki/PageObject.html
 
 		---
 
-		# Resources
+		## Test Structure
+
+		*Personal preference*
+
+		```bash
+		project/
+		   |-- public
+		   |-- tests
+		      |-- unit
+		      |-- e2e
+		         |-- homepage
+		            |-- homepagePageObject.js
+		            |-- homepageSpec.js
+		         |-- blogs
+		            |-- blogPageObject.js
+		            |-- blogSpec.js
+
+		```
+
+		---
+
+		## Test Suites
+
+		---
+
+		## Logging In
+		*https://github.com/angular/protractor/blob/master/spec/withLoginConf.js*
+
+		```javascript
+		onPrepare: function() {
+			browser.driver.get(env.baseUrl + '/login.html');
+
+			browser.driver.findElement(by.id('username')).sendKeys('Jane');
+			browser.driver.findElement(by.id('password')).sendKeys('1234');
+			browser.driver.findElement(by.id('clickme')).click();
+
+			browser.driver.wait(function() {
+				return browser.driver.getCurrentUrl().then(function(url) {
+					return /index/.test(url);
+				});
+			});
+		}
+		```
+
+		---
+
+		## Disabling animations
+
+		```javascript
+		onPrepare: function() {
+			// Disable animations so e2e tests run more quickly
+			var disableNgAnimate = function() {
+				angular.module('disableNgAnimate', []).
+				run(function($animate) {
+					$animate.enabled(false);
+				});
+			};
+
+			browser.addMockModule('disableNgAnimate', disableNgAnimate);
+		},
+ 		```
+
+ 		---
+
+ 		## Taking Screenshots
+ 		*https://github.com/angular/protractor/blob/master/docs/faq.md*
+
+ 		```javascript
+ 		browser.takeScreenshot().then(function(png) {
+			var stream = fs.createWriteStream("/tmp/screenshot.png");
+			stream.write(new Buffer(png, 'base64'));
+			stream.end();
+		});
+ 		```
+
+ 		---
+
+		## Testing non angular sites
+
+		*https://github.com/angular/protractor/issues/49*
+
+		```javascript
+		beforeEach(function() {
+			return browser.ignoreSynchronization = true;
+		});
+		```
+
+		---
+
+		## Resources
 
 		* Another meetup presentation - http://ramonvictor.github.io/protractor/slides/#/
 		* Ng Newsletter Article - http://www.ng-newsletter.com/posts/practical-protractor.html
@@ -375,23 +572,22 @@
 
 		---
 
-		class: inverse
+		## Picks
 
-		# Picks
+		* Dash - Mac Offline Documentation
+		* Podcasts - Arrested DevOps, Food Fight Show and Devchat.tv
+		* Particle Fever - Awesome documentation about the LHC [http://particlefever.com/]
+		* S3 and Backups
+		* Mountain Goat - Rare Breed
 
-		## Dash - Mac Offline Documentation
-		## Podcasts - Arrested DevOps, Food Fight Show and Devchat.tv
-		## Particle Fever - Awesome documentation about the LHC
-		## S3 and Backups
-		## Mountain Goat - Rare Breed
+		![Alt text](img/devchat.svg) ![Alt text](img/s3Logo.png) ![Alt text](img/rareBreed.png)
 
 		---
 
-		class: inverse
-
-		# About Me
-
 		## Cyclist
+		*Enjoy building and riding bikes*
+
+		![Alt text](img/bike.jpg)
 
 		---
 
@@ -402,7 +598,8 @@
 
 		---
 
-		# Quadcopters
+		## Quadcopters
+		*Wait to write an API around the quadcopter, if you are keen to join me let me know*
 
 		<PHOTO />
 

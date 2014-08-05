@@ -36,7 +36,7 @@ img {
     height: auto;
 } 
 
-.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 1.75em; }
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 1.4em; }
 .remark-code-line-highlighted     { background-color: #373832; }
 .pull-left {
 	float: left;
