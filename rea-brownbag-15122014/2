@@ -1,0 +1,73 @@
+# Microservices
+
+# Braiden Judd
+
+# Agenda
+
+# Basic Principles
+	- All about going fast
+	- Small or very very small - 100[0] lines of code (of executable lines)
+ 	- loosely coupled/highly cohesive
+ 	- multi-version ok
+ 	- monitor yourself
+
+# Definition/Microservices Manifesto/Micro service mantra
+	- Infantcy - There is no gang of four book. Still figuring out the ways in which to work
+	- Architecture that...
+	- Speed over ?
+	- Monitoring over testing
+	- Working code over standards
+	- It's a social change as well
+
+# Benefits of MS of traditional architecture
+	- Scaling (Performance)
+	- Scaling (Delivery)
+	- Agility
+	- Resiliency
+	- Geography
+
+# ???
+
+# Types
+## Object Orientated Programming v SoA
+
+## Functional Programming v Event SoA
+
+# Rapids, Rivers and Reservoirs
+
+
+# Considerations
+## Security
+## Service Proliferation
+## Standardisation v Autonomy - LEGO (fine number of pieces, number of interfaces)
+## Archetypes - Creating Safe Blueprints (Stencil)
+
+# Organisational Structure and Culture
+
+## Conways Law
+	- Multifunctional teams
+	- Co-dependence vs Independence
+		- we want independent teams, so they create independent software - decoupled software (this is good, because it enables teams to create software on their own timelines)
+
+- Experimentation drives innovation
+	- Need an architecture that promotes innovation
+	- Give examples of how you can conduct experiments
+
+# Follow Up
+
+# Picks
+- Hamilton Island
+- Powerup 3.0
+- 
+
+# About Me
+- Cyclist
+- Quadcopters
+- Dogs
+
+# Speaking
+	- http://www.confreaks.com/videos/2488-railsconf2013-how-to-talk-to-developers
+	- http://javascriptjabber.com/090-jsj-users-groups/
+	- http://rubyrogues.com/064-rr-presenting-at-conferences/
+	- http://rubyrogues.com/167-rr-speaking-at-conferences/
+	- "If you can't explain it simply, you don't understand it well enough" Albert Einstein
