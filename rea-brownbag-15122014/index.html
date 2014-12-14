@@ -3,8 +3,8 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>AWS Meetup Melbourne - Microservices</title>
-		<meta name="description" content="Angular Meetup Melbourne - Protractor JS">
+		<title>Microservices Brownbag</title>
+		<meta name="description" content="Microservices Brownbag">
 		<meta name="author" content="Braiden Judd">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="css/style.css">
@@ -48,8 +48,8 @@
 
 		### Part I: Intro
 		### Part II: Benefits
-		### Part III: Restful
-		### Part IV: Eventing
+		### Part III: Cultural Considerations
+		### Part IV: Types of Microservice Architectures
 
 		---
 
@@ -73,11 +73,15 @@
 
 		---
 
-		## Core Tenets
+		## Core Principles
 
 		### Loosely Coupled/Highly Cohesive
 		### Small
+		### Multi-Version OK
+		### Favour Monitoring over Testing
 		### It's a Cultural Thing
+		### Everything is about going fast
+		### It is a tool
 
 		---
 
@@ -96,7 +100,7 @@
 
 		### Empowerment
 
-		![Alt text](img/interconnects.png)
+		![Alt text](img/lego.png)
 
 		???
 
@@ -157,177 +161,34 @@
 
 		class: inverse
 
-		# Part III: Considerations
+		# Part III: Cultural Considerations
 		*Ok, how?*
 
 		---
 
-		## Where do I standardise and where do I allow autonomy?
+		## Technical Considerations
 
-		![Alt text](img/standardisation.png)
-
-		???
-
-		* AUTONOMY V STANDARD
-		* MANUFACTORING WANT STANDARDS
-		* STARTUPS WANT AUTONOMY
-		* LIVE SOMEWHERE IN THE MIDDLE
-
-		...
-
-		* Find a place on a line
-		* Enterprises tend to er on standardise
-		* Startups tend to be on the other side
-		* I am going to show there are parts that need standardisation and there are parts that are free to be autonomous
-
-		---
-
-		## Interfaces
-
-		### Pipes and connections
-
-		![Alt text](img/freedom_v_autonomy.png)
-
-		???
-
-		* STANDARDISE THE PIPES AND CONNECTIONS
-		* USE HTTP, HTTP ERROR CODES. STANDARD WELL KNOWN TECH
-		* PROVEN AT WEB SCALE
-		* HTTP IS LANGUAGE AGNOSTIC
-		* FREEDOM WITHIN SERVICES 
-
-		...
-
-		* Standardise all the pipes and connections, allow autonomy and discretion in the service implementation
-		* Important to define the interfaces between them, not necessarily the technology that supports them.
-		* REST is a good and well defined standard. Use for the standard error codes HTTP provides.
-
-		---
-
-		## Deployment
-
-		### Deploy quickly and often
-
-		![Alt text](img/baddeployments.png)
-
-		???
-
-		* DEPLOY QUICKLY - As soon as release is ready
-		* DEPLOY OFTEN - Deploy once a day not change thursday
-		* ALL ABOUT LOWERING RISK OF CHANGE
-		* GRAPH
-
-		...
-
-		* By deploying quickly i mean when the release is ready it should rapidly move to production.
-		
-		---
-
-		## Deployment
-
-		### Deploy quickly and often
-
-		![Alt text](img/gooddeployments.png)
-
-		???
-
-		* STANDARDISE YOUR DEPLOYMENT TOOLS AND PROCESS.
-		* DIFFERENT TECH, SAME TOOLS AND PROCESS
-		* Chef, Puppet or Ansible
-		* DOCKER
-
-		...
-
-		* Often means deploying small production ready changes
-		* Lowers the risk of changes as they are smaller, less coupled and therefore more easy to rollback
-		* Standardise the deployment process, so for example while you might have ruby on rails, django and node.js services, they all should be deployed the same way.
-		* Use Chef, Puppet or Ansible, so to deploy each app you just run a playbook or cookbook, while these may very from service to actually deploy each service it will be the same.
-		* Docker could help with things like this.
-
-		---
-
-		## Integration Testing
-
-		### Consumer driven contracts
-
-		![Alt text](img/integrationtesting.png)
-
-		???
-
-		* CONSUMER WRITES TESTS
-		* SERVICE RUN THEMS
-
-		...
-
-		* Get the customers of your service write tests for your services they consume, this forms a contract
-		* Run these tests before each deployment
-
-		---
-
-		## Monitoring and Logging
-
-		### Aggregate to create and end-to-end picture of your application
-
-		![Alt text](img/logging.png)
-
-		???
-
-		* LOG EVERYTHING
-		* USE LOG AGGREGATION TOOLS
-		* PROACTIVE NOT REACTIVE
-		* STATUS CODES AND LATENCY
-		* TRANSACTION IDs
-
-		...
-
-		* When something is broken on a monolithic system, it is very easy to see what is broken.
-		* In the microservice world, it is much more difficult. As it could be one of N disparate services.
-		* Use a log aggregation tools, there are free open source options like logstash. But there are many great options that now play in this place.
-		* Logging as a proactive and reactive tool, getting response times. Knowing what normal is. HTTP Error codes. 
-		* Use transaction ID, a unique ID for all service interactions involved in a single request.
-
-		---
-
-		## Automation
-
-		### Goes without saying
-
-		![Alt text](img/automation.gif)
-
-		???
-
-		* A MUST
-		* 1 DEPLOY to 150 A MONTH
-		* WHEN IS AUTOMATION A BAD THING
-
-		...
-
-		* I was not going to include this slide, but deployments, testing and monitoring must be automated.
-		* Can not afford not to automate within a microservices based environment as deployments, testing and monitoring needs to scale.
-
-		---
-
-		## Transactions
-
-		### These are hard
+		### Transactions
 
 		![Alt text](img/transactions.png)
 
-		???
+		---
 
-		* AVOID
-		* BE AWARE
-		* MAKE ONE SERVICE
+		## Technical Considerations
 
-		...
-
-		* Should be aware of any transactions occuring accross service boundaries, such as between an ticketing and payment system.
-		* Transactions couple services together.
-		* These should be avoided where posisble
+		### Shared Data
 
 		---
 
-		## Team structure
+		## Technical Considerations
+
+		### Service 'MESHING'
+
+		---
+
+		## Cultural Considerations
+
+		### Embrace Conways Law
 
 		> "organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations" 
 		> 
@@ -335,119 +196,175 @@
 
 		???
 
-		* Conway's law "organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations" 
-		
+		- If you create once be large team, you will get one big bit of software
+		- If you embrace Conways Law and create teams around the services you want to build, you can let conways law take care of your architecture
+
 		---
 
-		## Teams divided by Technology
+		## Cultural Considerations
 
 		![Alt text](img/team_structure_tech.png)
 
-		???
-
-		* BAD, SILOED APPLICATION
-
-		...
-
-		* If you divide your team by technology, you will create technology silos in your applications.
-		
 		---
 
-		## Multifunctional Teams
+		## Cultural Considerations
 
 		![Alt text](img/team_structure_micro.png)
 
-		???
+		---
 
-		* GOOD, SILOED SERVICES (LOOSELY COUPLED)
-		* HIGH COHESION
-		* DISTRIBUTED AGILE
+		## Cultural Considerations
 
-		...
+		### Codependent v Independent
 
-		* If you create multi-skilled teams and each of these work on an individual service to make an application you will get a loosely coupled microservices architecture because of Conway's law.
-		* Distributed Agile is quite difficult in practice, this might help if you can co-locate each service team
-		
+		![Alt text](img/dependence.png)
 
 		---
 
-		## Architectural Safety
+		## Cultural Considerations
 
-		### Cars not trains
-
-		![Alt text](img/safety.png)
+		### Comfortable with Different Concepts
 
 		???
 
-		* Act like cars not trains
-		* TIMEOUTS
-		* CIRCUIT BREAKERS
-		* BULK HEADS
-		* ARCHETYPES
-		* NEW SERVICE IMPLEMENT SAFETY THEMSELVES
-
-		...
-
-		* Let people act like cars not trains, where trains are on tracks, stop at the same places and leave at consistant times, cars afford a greater degree of freedom, however within some rule boundaries. These rules can be different from company to company. Like driving on the correct side of the road, it doesn't matter if you choose one side, it matters greatly however that you choose a side and stick with it.
-		* Use timeouts, circuit breakers and bulk heads
-		* In the references there is a Netflix talk that goes through this in detail.
-		* Define archetypes, that developers can use off the shelf to build their services
-		* If a service is to use a new technology the team would be expected to build their service conforming to the regulations.
+		- Monitoring over testing
 
 		---
 
 		class: inverse
 
-		# Part IV: Getting started
-		*Ok, when?*
-
-		???
-
-		* How we start with microservices
-		* This can be hard, but their are benefits
+		# Part IV: Types of Microservices
+		*Restful v Event?*
 
 		---
 
-		class: inverse
+		## Breaking down the Monolith
 
-		name: agenda
-		class: middle, center
-
-		## Decision Tree
-		![Alt text](img/decisiontree.png)
-
-		???
-
-		* GREENSFIELDS
-		* SINGLE DOMAIN
-		* LOW RISK
-		* REUSE
-
-		...
-
-		* Greenfields, Make your standards in iteration 0 and go for it
-		* Suits environments with changing conditions, not largely static applications
-		* Is the maintenance, acting on a particular problem domain of the application that could be pulled out as part of the maintenance work?
-		* By pulling this functionality into a microservice you can reuse the functionality elsewhere in your ecosystem.
-		* Targetting low risk parts of the application is an obvious way to break some of the functionality away.
+		![Alt text](img/monolithic.png)
 
 		---
 
-		class: inverse
+		## Object Orientated v Functional Programing
 
-		## Netflix - Karyon
+		.left-column[
+			<h2>OO</h2>
+			<h3>Encapsulisation</h3>
+			<h3>Loosely Couple/Highly Cohesive</h3>
+			<h3>Inheritance</h3>
+		]
+		.right-column[
+			<h2>Functional</h2>
+			<h3>Everything is a stream</h3>
+			<h3>Generator - Creates data</h3>
+			<h3>Map - Transforms data</h3>
+			<h3>Filter - Remove unwanted data</h3>
+			<h3>Reduce - Aggreagtes/Summarises data</h3>
+		]
 
-		### Microservices Template
+		---
 
-		https://github.com/Netflix/karyon
+		## Resful v Eventing
 
-		???
+		.left-column[
+			<h2>Restful</h2>
+			<h3>Encapsulisation</h3>
+			<h3>Loosely Couple/Highly Cohesive</h3>
+			<h3>Inheritance</h3>
+		]
+		.right-column[
+			<h2>Functional</h2>
+			<h3>Everything is a stream</h3>
+			<h3>Generator - Creates data</h3>
+			<h3>Map - Transforms data</h3>
+			<h3>Filter - Remove unwanted data</h3>
+			<h3>Reduce - Aggreagtes/Summarises data</h3>
+		]
 
-		* Built by Netflix, so heavily integrated with netflix's other open source tools
-		* Service registry
-		* Property management
-		* Status page and health checks
-		* Latency monitoring
+		---
+
+		## Restful
+
+		### Overview
+
+		PICTURE
+
+		---
+
+		## Restful
+
+		.left-column[
+			<h2>Pros</h2>
+			<h3>Encapsulisation</h3>
+			<h3>Loosely Couple/Highly Cohesive</h3>
+			<h3>Inheritance</h3>
+		]
+		.right-column[
+			<h2>Cons</h2>
+			<h3>Everything is a stream</h3>
+			<h3>Generator - Creates data</h3>
+			<h3>Map - Transforms data</h3>
+			<h3>Filter - Remove unwanted data</h3>
+			<h3>Reduce - Aggreagtes/Summarises data</h3>
+		]
+
+		---
+
+		## Restful
+
+		### Types of Services
+
+		PICTURES
+
+		---
+
+		## Restful
+
+		### Considerations
+
+		PICTURES
+
+		---
+
+		## Eventing
+
+		### Overview
+
+		PICTURE
+
+		---
+
+		## Eventing
+
+		### Types of Services
+
+		PICTURES
+
+		---
+
+		## Eventing
+
+		### Considerations
+
+		PICTURES
+
+		---
+
+		## Eventing
+
+		.left-column[
+			<h2>Pros</h2>
+			<h3>Encapsulisation</h3>
+			<h3>Loosely Couple/Highly Cohesive</h3>
+			<h3>Inheritance</h3>
+		]
+		.right-column[
+			<h2>Cons</h2>
+			<h3>Everything is a stream</h3>
+			<h3>Generator - Creates data</h3>
+			<h3>Map - Transforms data</h3>
+			<h3>Filter - Remove unwanted data</h3>
+			<h3>Reduce - Aggreagtes/Summarises data</h3>
+		]
 
 		---
 
@@ -468,11 +385,9 @@
 
 		# Picks
 
-		## Dash - Mac Offline Documentation
-		## Podcasts - Arrested DevOps, Food Fight Show, Devchat.tv and AWS Podcast****
-		## Firebase
-		## S3 and Backups
-		## Mountain Goat - Rare Breed
+		##
+		##
+		##
 
 		---
 
@@ -505,7 +420,7 @@
 		> 
 		> http://yow.eventer.com/yow-2013-1080/practical-considerations-for-microservice-architectures-by-sam-newman-1389
 		>
-		> http://www.confreaks.com/videos/2488-railsconf2013-how-to-talk-to-developers
+		> https://yow.eventer.com/yow-2012-1012/micro-services-architecture-by-fred-george-1286
 
 		</textarea>
 		<script src="lib/remark/out/remark.min.js" type="text/javascript"></script>
