@@ -15,34 +15,32 @@
 
 		name: inverse
 		layout: true
-		class: center, middle
 
 		---
 
-		class: inverse
+		class: inverse, center, middle
 
 		# Microservices
 		*Eventing v Restful*
 
 		---
 
-		class: inverse
+		class: inverse, center, middle
 
 		# Braiden Judd
-		>
 		> @pragmaticyclist
 
 		---
 		
-		class: inverse
+		class: inverse, center, middle
 
-		## What is your current experience with microservices?
+		## What do you think of Microservices?
 
 		http://braiden.firebaseapp.com
 
 		---
 
-		class: inverse
+		class: inverse, center, middle
 
 		# Agenda
 
@@ -53,12 +51,14 @@
 
 		---
 
-		class: inverse
+		class: inverse, center, middle
 
 		# Part I: Introduction
 		*OK, what?*
 
 		---
+
+		class: center, middle
 
 		## Let's start with a definition
 
@@ -73,19 +73,22 @@
 
 		---
 
-		## Core Principles
+		class: inverse
 
-		### Loosely Coupled/Highly Cohesive
-		### Small
-		### Multi-Version OK
-		### Favour Monitoring over Testing
-		### It's a Cultural Thing
-		### Everything is about going fast
-		### It is a tool
+		# Core Principles
+
+		- Loosely Coupled/Highly Cohesive
+		- Small
+		- Multi-Version OK
+		- Favour Monitoring over Testing
+		- It's a Cultural Thing
+		- Everything is about going fast
+		- Deployments should be unceremonious
+		- It is a tool
 
 		---
 
-		class: inverse
+		class: inverse, center, middle
 
 		# Part II: Benefits
 		*OK, why?*
@@ -95,6 +98,8 @@
 		* So now we have a definition, why would we want to do something like this?
 
 		---
+
+		class: center, middle
 
 		## Brings freedom and choice
 
@@ -110,6 +115,8 @@
 
 		---
 
+		class: center, middle
+
 		## Scalability
 
 		### Flexibility in Scaling
@@ -117,6 +124,8 @@
 		![Alt text](img/finegrainedscalability.png)
 
 		---
+
+		class: center, middle
 
 		## Agility
 
@@ -132,6 +141,8 @@
 
 		---
 
+		class: center, middle
+
 		## Resiliency
 
 		### Cloud native architecture
@@ -144,6 +155,8 @@
 		* CUSTOMER EXPERIENCE DEGRADED NOT REMOVED
 
 		---
+
+		class: center, middle
 
 		## Geography
 
@@ -159,32 +172,14 @@
 
 		---
 
-		class: inverse
+		class: inverse, center, middle
 
 		# Part III: Cultural Considerations
 		*Ok, how?*
 
 		---
 
-		## Technical Considerations
-
-		### Transactions
-
-		![Alt text](img/transactions.png)
-
-		---
-
-		## Technical Considerations
-
-		### Shared Data
-
-		---
-
-		## Technical Considerations
-
-		### Service 'MESHING'
-
-		---
+		class: center, middle
 
 		## Cultural Considerations
 
@@ -201,17 +196,23 @@
 
 		---
 
+		class: center, middle
+
 		## Cultural Considerations
 
 		![Alt text](img/team_structure_tech.png)
 
 		---
 
+		class: center, middle
+
 		## Cultural Considerations
 
 		![Alt text](img/team_structure_micro.png)
 
 		---
+
+		class: center, middle
 
 		## Cultural Considerations
 
@@ -221,22 +222,14 @@
 
 		---
 
-		## Cultural Considerations
-
-		### Comfortable with Different Concepts
-
-		???
-
-		- Monitoring over testing
-
-		---
-
-		class: inverse
+		class: inverse, center, middle
 
 		# Part IV: Types of Microservices
 		*Restful v Event?*
 
 		---
+
+		class: center, middle
 
 		## Breaking down the Monolith
 
@@ -244,11 +237,13 @@
 
 		---
 
-		## Object Orientated v Functional Programing
+		class: inverse
+
+		# Object Orientated v Functional Programing
 
 		.left-column[
 			<h2>OO</h2>
-			<h3>Encapsulisation</h3>
+			<h3>Encapsulation</h3>
 			<h3>Loosely Couple/Highly Cohesive</h3>
 			<h3>Inheritance</h3>
 		]
@@ -263,108 +258,139 @@
 
 		---
 
-		## Resful v Eventing
+		class: inverse
+
+		# Resful v Eventing
 
 		.left-column[
 			<h2>Restful</h2>
-			<h3>Encapsulisation</h3>
+			<h3>Encapsulisation - Interface hides the implementation of the service</h3>
 			<h3>Loosely Couple/Highly Cohesive</h3>
-			<h3>Inheritance</h3>
+			<h3>Inheritance - Services can call other child services for data</h3>
 		]
 		.right-column[
 			<h2>Functional</h2>
-			<h3>Everything is a stream</h3>
-			<h3>Generator - Creates data</h3>
-			<h3>Map - Transforms data</h3>
-			<h3>Filter - Remove unwanted data</h3>
-			<h3>Reduce - Aggreagtes/Summarises data</h3>
+			<h3>Large Stream of data</h3>
+			<h3>Generator Services - add needs to the stream</h3>
+			<h3>Mapping Services - publish solutions </h3>
+			<h3>Filter Services - Create substreams to breakdown application</h3>
+			<h3>Aggregator Services - Aggreagtes solutions back to client</h3>
 		]
 
 		---
+
+		class: center, middle
 
 		## Restful
 
 		### Overview
 
-		PICTURE
+		![Alt text](img/microservices.png)
 
 		---
 
-		## Restful
+		class: inverse
 
-		.left-column[
-			<h2>Pros</h2>
-			<h3>Encapsulisation</h3>
-			<h3>Loosely Couple/Highly Cohesive</h3>
-			<h3>Inheritance</h3>
-		]
-		.right-column[
-			<h2>Cons</h2>
-			<h3>Everything is a stream</h3>
-			<h3>Generator - Creates data</h3>
-			<h3>Map - Transforms data</h3>
-			<h3>Filter - Remove unwanted data</h3>
-			<h3>Reduce - Aggreagtes/Summarises data</h3>
-		]
+		# Restful
+
+		## Types of Services
+
+		### Data - Get/Generate Data
+		### Mutator - Performs a Transaction
+		### Transformation - Transforms data
+		### Logging and Monitoring
 
 		---
 
-		## Restful
+		class: inverse
 
-		### Types of Services
+		# Restful
 
-		PICTURES
+		## Considerations
 
-		---
-
-		## Restful
-
-		### Considerations
-
-		PICTURES
+		### Transactions
+		### Shared Data
+		### Service 'MESHING'
 
 		---
+
+		class: center, middle
 
 		## Eventing
 
 		### Overview
 
-		PICTURE
+		![Alt text](img/eventing.png)
 
 		---
 
+		class: center, middle
+
 		## Eventing
 
-		### Types of Services
+		### Types of Data Streams
 
-		PICTURES
+		![Alt text](img/eventing_data.png)
 
 		---
 
-		## Eventing
+		class: inverse
 
-		### Considerations
+		# Eventing
 
-		PICTURES
+		## Types of Services
+
+		### Needs Generators
+		### Solution Generators
+		### Solution Aggregators
+		### Sinks
 
 		---
 
-		## Eventing
+		class: inverse
 
-		.left-column[
-			<h2>Pros</h2>
-			<h3>Encapsulisation</h3>
-			<h3>Loosely Couple/Highly Cohesive</h3>
-			<h3>Inheritance</h3>
-		]
-		.right-column[
-			<h2>Cons</h2>
-			<h3>Everything is a stream</h3>
-			<h3>Generator - Creates data</h3>
-			<h3>Map - Transforms data</h3>
-			<h3>Filter - Remove unwanted data</h3>
-			<h3>Reduce - Aggreagtes/Summarises data</h3>
-		]
+		# Eventing
+
+		## Considerations
+
+		### Message Design
+		### Event Bus Selection
+
+		---
+
+		class: inverse
+
+		# Eventing
+
+		## Considerations - Message Design
+
+		```javascript
+		{
+			timeout: 10000,
+			type: 'Need',
+			solutions: []
+		}
+		```
+
+		---
+
+		class: inverse
+
+		# Eventing
+
+		## Considerations - Event Bus Selection
+
+		### Need something that can scale, resilient (SPOF)
+		### Kinesis/Lambda
+		### http://kafka.apache.org/
+
+		---
+
+		class: center, middle
+
+		# Code Example
+
+		## https://github.com/braidenjudd/microservices-by-example/
 
 		---
 
@@ -373,11 +399,10 @@
 		# Take aways
 
 		### Loosely coupled and highly cohesive
-		### Small, well defined and limited to a single business concept
-		### Standardise the pipes and connectors, allow autonomy in the service implementations
-		### Logging is important, aggregate to create and end-to-end picture of your application
-		### Standardise the deployment process, deploy often and quickly
+		### Small services
+		### Deployments must be unceremonious
 		### Understand how team structure can impact your application
+		### Know the difference between eventing style and restful
 
 		---
 
@@ -385,9 +410,9 @@
 
 		# Picks
 
-		##
-		##
-		##
+		## Startup Podcast: http://gimletmedia.com/show/startup/
+		## Great Barrier Reef
+		## Powerup 3.0
 
 		---
 
@@ -399,14 +424,7 @@
 		### Quadcopters
 		### Dogs
 
-		???
-
-		* Avid cyclist
-		* Quadcopters, nothing stimilates boyish enthusiasm in me like Quadcopters, it is grown up lego. Would love to build an API on my two quadcopters and get them to work together.
-
 		---
-
-		# Go home nature, you're drunk
 
 		![Alt text](img/dogs.png)
 

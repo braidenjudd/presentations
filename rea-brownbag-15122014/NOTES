@@ -1,0 +1,329 @@
+# Principles
+ 	- very very small - 100 lines of code
+ 	- loosely coupled
+ 	- multi-version ok
+ 		- multi copies of the data? ok. 
+ 		- 1% of the time you will need a single copy of the data.
+ 	- monitor yourself
+	 	- publish when someone asks you to do something stupid
+		- replaces, unit testing?
+		- publish interesting stuff
+		- Application - becomes a small conceptualization
+ 	- Everything about going fast
+
+# Types of data
+
+## Rapids
+  - putting every event - log everything to the bus
+  - central point of the application
+
+## river
+  - themed events
+
+## Ponds
+  - state/history
+  - go from events -> entities
+
+# Event buses
+
+## Kafka
+	- persistence store, crash safe - for rapids
+	- publish all interesting events
+
+## Central bus
+	- debug, because you have event interesting event in order 
+
+## 0mq
+	- Use other Queues to create rivers - themed/filtered message queues
+
+## Service
+	- Publish to rapid
+	- Subscribe to river
+
+## Asynchronous Services
+	- Services publish needs
+	- Services listen and publish solutions
+	- Original service listen and choose solution
+	- Benefits
+		- Variants east
+		- Graceful degradation
+
+# Service Types
+## Needs processing
+	- Solution services
+	- Enrichment services - Add value to a solution
+	- Solution Blocker - do not make her an offer
+	- Client Biases - Modify solutions with extra data, 
+	- Transactional services
+	- Logging services
+
+## Solution Selection
+
+## Channel Interfaces
+	- Client
+	- Solution maker
+
+## Logging and monitoring services
+
+Questions
+	- Why do IT people say no, are we ignoring past lessons.
+ 	- What is the response when we talk about one single bus?
+ 		- Buses are very scalable, deisgned for this purpose
+	- Added complexity of the application
+
+# Capital One - effect
+	- Daily mail 130k J2EE to 4K Clojure
+	- Uptick functions
+		- Functional Programming -> suits microservices -> node.js
+		- Dev/Ops
+		- Continuous delivery
+		- Mobile first
+		- Cloud based Deployment
+
+AGILE
+	- Inititives
+	- Projects
+	- Features - Customer interaction here
+	- Stories
+	- Task
+
+Micro service mantra
+	- Speed over ???
+	- Monitoring over testing
+	- Working code over standards
+	- It's a social change
+
+Cultural
+	- Experimentation drives innovation
+	- Innovation occurs of discomfort
+	- "Perfect" is the enemy of "Good"
+	- Do, don't ask for permission
+
+### Other notes
+	- Baysian service principles
+	- Services become disposable
+	- Language agnostic
+	- Design: events not enitities
+	- History of events, not the current (Immutable Data)
+	- 
+
+Chad Fowler
+	- Use sync
+		- algorithms described serially
+		- Programmers understanding
+	- Point-2-Point RESTFUL
+Fred
+	- Async
+		- Robust
+	- Better de-coupling
+	- Event bus
+
+Functional Programming v Microservices
+	- maps -> maps -> maps -> maps
+		- intermediate data steps, why publish?
+
+Databases
+	- how #?
+	- Entity v Polygot
+
+# Principles
+ 	- very very small - 100 lines of code
+ 	- loosely coupled
+ 	- multi-version ok
+ 		- multi copies of the data? ok. 
+ 		- 1% of the time you will need a single copy of the data.
+ 	- monitor yourself
+	 	- publish when someone asks you to do something stupid
+		- replaces, unit testing?
+		- publish interesting stuff
+		- Application - becomes a small conceptualization
+ 	- Everything about going fast
+
+# Types of data
+
+## Rapids
+  - putting every event - log everything to the bus
+  - central point of the application
+
+## river
+  - themed events
+
+## Ponds
+  - state/history
+  - go from events -> entities
+
+# Event buses
+
+## Kafka
+	- persistence store, crash safe - for rapids
+	- publish all interesting events
+
+## Central bus
+	- debug, because you have event interesting event in order 
+
+## 0mq
+	- Use other Queues to create rivers - themed/filtered message queues
+
+## Service
+	- Publish to rapid
+	- Subscribe to river
+
+## Asynchronous Services
+	- Services publish needs
+	- Services listen and publish solutions
+	- Original service listen and choose solution
+	- Benefits
+		- Variants east
+		- Graceful degradation
+
+# Service Types
+## Needs processing
+	- Solution services
+	- Enrichment services - Add value to a solution
+	- Solution Blocker - do not make her an offer
+	- Client Biases - Modify solutions with extra data, 
+	- Transactional services
+	- Logging services
+
+## Solution Selection
+
+## Channel Interfaces
+	- Client
+	- Solution maker
+
+## Logging and monitoring services
+
+Questions
+	- Why do IT people say no, are we ignoring past lessons.
+ 	- What is the response when we talk about one single bus?
+ 		- Buses are very scalable, deisgned for this purpose
+	- Added complexity of the application
+
+# Capital One - effect
+	- Daily mail 130k J2EE to 4K Clojure
+	- Uptick functions
+		- Functional Programming -> suits microservices -> node.js
+		- Dev/Ops
+		- Continuous delivery
+		- Mobile first
+		- Cloud based Deployment
+
+AGILE
+	- Inititives
+	- Projects
+	- Features - Customer interaction here
+	- Stories
+	- Task
+
+Micro service mantra
+	- Speed over ???
+	- Monitoring over testing
+	- Working code over standards
+	- It's a social change
+
+Cultural
+	- Experimentation drives innovation
+	- Innovation occurs of discomfort
+	- "Perfect" is the enemy of "Good"
+	- Do, don't ask for permission
+
+### Other notes
+	- Baysian service principles
+	- Services become disposable
+	- Language agnostic
+	- Design: events not enitities
+	- History of events, not the current (Immutable Data)
+	- 
+
+Chad Fowler
+	- Use sync
+		- algorithms described serially
+		- Programmers understanding
+	- Point-2-Point RESTFUL
+Fred
+	- Async
+		- Robust
+	- Better de-coupling
+	- Event bus
+
+Functional Programming v Microservices
+	- maps -> maps -> maps -> maps
+		- intermediate data steps, why publish?
+
+Databases
+	- how #?
+	- Entity v Polygot
+
+# Microservices
+
+# Braiden Judd
+
+# Agenda
+
+# Basic Principles
+	- All about going fast
+	- Small or very very small - 100[0] lines of code (of executable lines)
+ 	- loosely coupled/highly cohesive
+ 	- multi-version ok
+ 	- monitor yourself
+
+# Definition/Microservices Manifesto/Micro service mantra
+	- Infantcy - There is no gang of four book. Still figuring out the ways in which to work
+	- Architecture that...
+	- Speed over ?
+	- Monitoring over testing
+	- Working code over standards
+	- It's a social change as well
+
+# Benefits of MS of traditional architecture
+	- Scaling (Performance)
+	- Scaling (Delivery)
+	- Agility
+	- Resiliency
+	- Geography
+
+# ???
+
+# Types
+## Object Orientated Programming v SoA
+
+## Functional Programming v Event SoA
+
+# Rapids, Rivers and Reservoirs
+
+
+# Considerations
+## Security
+## Service Proliferation
+## Standardisation v Autonomy - LEGO (fine number of pieces, number of interfaces)
+## Archetypes - Creating Safe Blueprints (Stencil)
+
+# Organisational Structure and Culture
+
+## Conways Law
+	- Multifunctional teams
+	- Co-dependence vs Independence
+		- we want independent teams, so they create independent software - decoupled software (this is good, because it enables teams to create software on their own timelines)
+
+- Experimentation drives innovation
+	- Need an architecture that promotes innovation
+	- Give examples of how you can conduct experiments
+
+# Follow Up
+
+# Picks
+- Hamilton Island
+- Powerup 3.0
+- 
+
+# About Me
+- Cyclist
+- Quadcopters
+- Dogs
+
+# Speaking
+	- http://www.confreaks.com/videos/2488-railsconf2013-how-to-talk-to-developers
+	- http://javascriptjabber.com/090-jsj-users-groups/
+	- http://rubyrogues.com/064-rr-presenting-at-conferences/
+	- http://rubyrogues.com/167-rr-speaking-at-conferences/
+	- "If you can't explain it simply, you don't understand it well enough" Albert Einstein
